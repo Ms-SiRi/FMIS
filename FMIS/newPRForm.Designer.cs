@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtPOyr = new System.Windows.Forms.TextBox();
+            this.txtPOctrl = new System.Windows.Forms.TextBox();
+            this.txtPOtype = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -108,25 +108,25 @@
             this.qrPic = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.icnPOPrint = new FontAwesome.Sharp.IconButton();
+            this.icnPOGenerate = new FontAwesome.Sharp.IconButton();
+            this.qrPOPic = new System.Windows.Forms.PictureBox();
+            this.icnCancel = new FontAwesome.Sharp.IconButton();
+            this.icnSave = new FontAwesome.Sharp.IconButton();
             this.groupBox1.SuspendLayout();
             this.alphaGradientPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qrPOPic)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtPOyr);
+            this.groupBox1.Controls.Add(this.txtPOctrl);
+            this.groupBox1.Controls.Add(this.txtPOtype);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtRemarks);
             this.groupBox1.Controls.Add(this.label10);
@@ -158,34 +158,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Purchase Request Details";
             // 
-            // textBox4
+            // txtPOyr
             // 
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(283, 68);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(59, 32);
-            this.textBox4.TabIndex = 32;
-            this.textBox4.Text = "2023";
+            this.txtPOyr.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOyr.Location = new System.Drawing.Point(283, 68);
+            this.txtPOyr.Name = "txtPOyr";
+            this.txtPOyr.ReadOnly = true;
+            this.txtPOyr.Size = new System.Drawing.Size(59, 32);
+            this.txtPOyr.TabIndex = 32;
+            this.txtPOyr.Text = "2023";
             // 
-            // textBox6
+            // txtPOctrl
             // 
-            this.textBox6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(343, 68);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(92, 32);
-            this.textBox6.TabIndex = 31;
-            this.textBox6.Text = "0001";
+            this.txtPOctrl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOctrl.Location = new System.Drawing.Point(343, 68);
+            this.txtPOctrl.Name = "txtPOctrl";
+            this.txtPOctrl.ReadOnly = true;
+            this.txtPOctrl.Size = new System.Drawing.Size(92, 32);
+            this.txtPOctrl.TabIndex = 31;
+            this.txtPOctrl.Text = "0001";
             // 
-            // textBox7
+            // txtPOtype
             // 
-            this.textBox7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(223, 68);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(59, 32);
-            this.textBox7.TabIndex = 30;
+            this.txtPOtype.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOtype.Location = new System.Drawing.Point(223, 68);
+            this.txtPOtype.Name = "txtPOtype";
+            this.txtPOtype.ReadOnly = true;
+            this.txtPOtype.Size = new System.Drawing.Size(59, 32);
+            this.txtPOtype.TabIndex = 30;
+            this.txtPOtype.Text = "PO";
             // 
             // label22
             // 
@@ -295,12 +296,16 @@
             this.comboSource.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSource.FormattingEnabled = true;
             this.comboSource.Items.AddRange(new object[] {
-            "Capital Outlay",
-            "MOOE"});
+            "Office Supplies",
+            "Fuel, Oil, Lubricants",
+            "R/M-Trans. Equipment",
+            "Other MOE",
+            "Capital Outlay"});
             this.comboSource.Location = new System.Drawing.Point(527, 166);
             this.comboSource.Name = "comboSource";
             this.comboSource.Size = new System.Drawing.Size(177, 30);
             this.comboSource.TabIndex = 11;
+            this.comboSource.SelectedIndexChanged += new System.EventHandler(this.comboSource_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -344,6 +349,8 @@
             this.comboDept.Name = "comboDept";
             this.comboDept.Size = new System.Drawing.Size(212, 30);
             this.comboDept.TabIndex = 7;
+            this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
+            this.comboDept.TextChanged += new System.EventHandler(this.comboDept_TextChanged);
             // 
             // label4
             // 
@@ -387,7 +394,6 @@
             this.txtyr.ReadOnly = true;
             this.txtyr.Size = new System.Drawing.Size(59, 32);
             this.txtyr.TabIndex = 3;
-            this.txtyr.Text = "2023";
             // 
             // txtCounter
             // 
@@ -397,7 +403,6 @@
             this.txtCounter.ReadOnly = true;
             this.txtCounter.Size = new System.Drawing.Size(92, 32);
             this.txtCounter.TabIndex = 2;
-            this.txtCounter.Text = "0001";
             // 
             // txtPRType
             // 
@@ -548,6 +553,7 @@
             this.btnOpenWaste.Text = "Open File";
             this.btnOpenWaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenWaste.UseVisualStyleBackColor = true;
+            this.btnOpenWaste.Click += new System.EventHandler(this.btnOpenWaste_Click);
             // 
             // btnOpenSum
             // 
@@ -565,6 +571,7 @@
             this.btnOpenSum.Text = "Open File";
             this.btnOpenSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenSum.UseVisualStyleBackColor = true;
+            this.btnOpenSum.Click += new System.EventHandler(this.btnOpenSum_Click);
             // 
             // btnOpenMR
             // 
@@ -582,6 +589,7 @@
             this.btnOpenMR.Text = "Open File";
             this.btnOpenMR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenMR.UseVisualStyleBackColor = true;
+            this.btnOpenMR.Click += new System.EventHandler(this.btnOpenMR_Click);
             // 
             // btnOpenPAR
             // 
@@ -599,6 +607,7 @@
             this.btnOpenPAR.Text = "Open File";
             this.btnOpenPAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenPAR.UseVisualStyleBackColor = true;
+            this.btnOpenPAR.Click += new System.EventHandler(this.btnOpenPAR_Click);
             // 
             // btnOpenInsp
             // 
@@ -616,6 +625,7 @@
             this.btnOpenInsp.Text = "Open File";
             this.btnOpenInsp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenInsp.UseVisualStyleBackColor = true;
+            this.btnOpenInsp.Click += new System.EventHandler(this.btnOpenInsp_Click);
             // 
             // btnOpenVouch
             // 
@@ -633,6 +643,7 @@
             this.btnOpenVouch.Text = "Open File";
             this.btnOpenVouch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenVouch.UseVisualStyleBackColor = true;
+            this.btnOpenVouch.Click += new System.EventHandler(this.btnOpenVouch_Click);
             // 
             // btnOpenObR
             // 
@@ -650,6 +661,7 @@
             this.btnOpenObR.Text = "Open File";
             this.btnOpenObR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenObR.UseVisualStyleBackColor = true;
+            this.btnOpenObR.Click += new System.EventHandler(this.btnOpenObR_Click);
             // 
             // btnOpenAw
             // 
@@ -667,6 +679,7 @@
             this.btnOpenAw.Text = "Open File";
             this.btnOpenAw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenAw.UseVisualStyleBackColor = true;
+            this.btnOpenAw.Click += new System.EventHandler(this.btnOpenAw_Click);
             // 
             // btnOpenPO
             // 
@@ -684,6 +697,7 @@
             this.btnOpenPO.Text = "Open File";
             this.btnOpenPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenPO.UseVisualStyleBackColor = true;
+            this.btnOpenPO.Click += new System.EventHandler(this.btnOpenPO_Click);
             // 
             // btnPROpen
             // 
@@ -700,6 +714,7 @@
             this.btnPROpen.Text = "Open File";
             this.btnPROpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPROpen.UseVisualStyleBackColor = true;
+            this.btnPROpen.Click += new System.EventHandler(this.btnPROpen_Click);
             // 
             // btnAttachWaste
             // 
@@ -717,6 +732,7 @@
             this.btnAttachWaste.Text = "Attach File";
             this.btnAttachWaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachWaste.UseVisualStyleBackColor = true;
+            this.btnAttachWaste.Click += new System.EventHandler(this.btnAttachWaste_Click);
             // 
             // btnAttachSum
             // 
@@ -734,6 +750,7 @@
             this.btnAttachSum.Text = "Attach File";
             this.btnAttachSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachSum.UseVisualStyleBackColor = true;
+            this.btnAttachSum.Click += new System.EventHandler(this.btnAttachSum_Click);
             // 
             // btnAttachMR
             // 
@@ -751,6 +768,7 @@
             this.btnAttachMR.Text = "Attach File";
             this.btnAttachMR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachMR.UseVisualStyleBackColor = true;
+            this.btnAttachMR.Click += new System.EventHandler(this.btnAttachMR_Click);
             // 
             // btnAttachPAR
             // 
@@ -768,6 +786,7 @@
             this.btnAttachPAR.Text = "Attach File";
             this.btnAttachPAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachPAR.UseVisualStyleBackColor = true;
+            this.btnAttachPAR.Click += new System.EventHandler(this.btnAttachPAR_Click);
             // 
             // btnAttachInsp
             // 
@@ -785,6 +804,7 @@
             this.btnAttachInsp.Text = "Attach File";
             this.btnAttachInsp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachInsp.UseVisualStyleBackColor = true;
+            this.btnAttachInsp.Click += new System.EventHandler(this.btnAttachInsp_Click);
             // 
             // btnAttachVouch
             // 
@@ -802,6 +822,7 @@
             this.btnAttachVouch.Text = "Attach File";
             this.btnAttachVouch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachVouch.UseVisualStyleBackColor = true;
+            this.btnAttachVouch.Click += new System.EventHandler(this.btnAttachVouch_Click);
             // 
             // btnAttachObR
             // 
@@ -819,6 +840,7 @@
             this.btnAttachObR.Text = "Attach File";
             this.btnAttachObR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachObR.UseVisualStyleBackColor = true;
+            this.btnAttachObR.Click += new System.EventHandler(this.btnAttachObR_Click);
             // 
             // btnAttachAw
             // 
@@ -836,6 +858,7 @@
             this.btnAttachAw.Text = "Attach File";
             this.btnAttachAw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachAw.UseVisualStyleBackColor = true;
+            this.btnAttachAw.Click += new System.EventHandler(this.btnAttachAw_Click);
             // 
             // btnPOattach
             // 
@@ -853,6 +876,7 @@
             this.btnPOattach.Text = "Attach File";
             this.btnPOattach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPOattach.UseVisualStyleBackColor = true;
+            this.btnPOattach.Click += new System.EventHandler(this.btnPOattach_Click);
             // 
             // btnPRattach
             // 
@@ -1132,9 +1156,9 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.iconButton3);
-            this.groupBox4.Controls.Add(this.iconButton4);
-            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.icnPOPrint);
+            this.groupBox4.Controls.Add(this.icnPOGenerate);
+            this.groupBox4.Controls.Add(this.qrPOPic);
             this.groupBox4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(1147, 654);
             this.groupBox4.Name = "groupBox4";
@@ -1143,86 +1167,91 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generate Purchase Order QR";
             // 
-            // iconButton3
+            // icnPOPrint
             // 
-            this.iconButton3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 35;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(212, 93);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(162, 43);
-            this.iconButton3.TabIndex = 2;
-            this.iconButton3.Text = "Print QR";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.icnPOPrint.Enabled = false;
+            this.icnPOPrint.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnPOPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.icnPOPrint.IconColor = System.Drawing.Color.Black;
+            this.icnPOPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnPOPrint.IconSize = 35;
+            this.icnPOPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnPOPrint.Location = new System.Drawing.Point(212, 93);
+            this.icnPOPrint.Name = "icnPOPrint";
+            this.icnPOPrint.Size = new System.Drawing.Size(162, 43);
+            this.icnPOPrint.TabIndex = 2;
+            this.icnPOPrint.Text = "Print QR";
+            this.icnPOPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnPOPrint.UseVisualStyleBackColor = true;
+            this.icnPOPrint.Click += new System.EventHandler(this.icnPOPrint_Click);
             // 
-            // iconButton4
+            // icnPOGenerate
             // 
-            this.iconButton4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 35;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(212, 44);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(162, 43);
-            this.iconButton4.TabIndex = 1;
-            this.iconButton4.Text = "Generate QR";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.icnPOGenerate.Enabled = false;
+            this.icnPOGenerate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnPOGenerate.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
+            this.icnPOGenerate.IconColor = System.Drawing.Color.Black;
+            this.icnPOGenerate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnPOGenerate.IconSize = 35;
+            this.icnPOGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnPOGenerate.Location = new System.Drawing.Point(212, 44);
+            this.icnPOGenerate.Name = "icnPOGenerate";
+            this.icnPOGenerate.Size = new System.Drawing.Size(162, 43);
+            this.icnPOGenerate.TabIndex = 1;
+            this.icnPOGenerate.Text = "Generate QR";
+            this.icnPOGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnPOGenerate.UseVisualStyleBackColor = true;
+            this.icnPOGenerate.Click += new System.EventHandler(this.icnPOGenerate_Click);
             // 
-            // pictureBox1
+            // qrPOPic
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 185);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.qrPOPic.Location = new System.Drawing.Point(10, 44);
+            this.qrPOPic.Name = "qrPOPic";
+            this.qrPOPic.Size = new System.Drawing.Size(185, 185);
+            this.qrPOPic.TabIndex = 0;
+            this.qrPOPic.TabStop = false;
             // 
-            // iconButton2
+            // icnCancel
             // 
-            this.iconButton2.ForeColor = System.Drawing.Color.Crimson;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.iconButton2.IconColor = System.Drawing.Color.Crimson;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 35;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(1555, 873);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(121, 43);
-            this.iconButton2.TabIndex = 78;
-            this.iconButton2.Text = "Cancel";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.icnCancel.ForeColor = System.Drawing.Color.Crimson;
+            this.icnCancel.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            this.icnCancel.IconColor = System.Drawing.Color.Crimson;
+            this.icnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnCancel.IconSize = 35;
+            this.icnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnCancel.Location = new System.Drawing.Point(1555, 873);
+            this.icnCancel.Name = "icnCancel";
+            this.icnCancel.Size = new System.Drawing.Size(121, 43);
+            this.icnCancel.TabIndex = 78;
+            this.icnCancel.Text = "Cancel";
+            this.icnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnCancel.UseVisualStyleBackColor = true;
+            this.icnCancel.Click += new System.EventHandler(this.icnCancel_Click);
             // 
-            // iconButton1
+            // icnSave
             // 
-            this.iconButton1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton1.IconColor = System.Drawing.Color.ForestGreen;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(1555, 824);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(121, 43);
-            this.iconButton1.TabIndex = 77;
-            this.iconButton1.Text = "Save File";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            this.iconButton1.Click += new System.EventHandler(this.iconButton1_Click);
+            this.icnSave.ForeColor = System.Drawing.Color.ForestGreen;
+            this.icnSave.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.icnSave.IconColor = System.Drawing.Color.ForestGreen;
+            this.icnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnSave.IconSize = 35;
+            this.icnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnSave.Location = new System.Drawing.Point(1555, 824);
+            this.icnSave.Name = "icnSave";
+            this.icnSave.Size = new System.Drawing.Size(121, 43);
+            this.icnSave.TabIndex = 77;
+            this.icnSave.Text = "Save File";
+            this.icnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnSave.UseVisualStyleBackColor = true;
+            this.icnSave.Click += new System.EventHandler(this.icnSave_Click);
             // 
             // newPRForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1688, 928);
-            this.Controls.Add(this.iconButton2);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.icnCancel);
+            this.Controls.Add(this.icnSave);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -1243,7 +1272,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qrPOPic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1325,15 +1354,15 @@
         private FontAwesome.Sharp.IconButton btnGenerate;
         private System.Windows.Forms.PictureBox qrPic;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtPOyr;
+        private System.Windows.Forms.TextBox txtPOctrl;
+        private System.Windows.Forms.TextBox txtPOtype;
         private System.Windows.Forms.Label label22;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton icnCancel;
+        private FontAwesome.Sharp.IconButton icnSave;
         private System.Windows.Forms.GroupBox groupBox4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton icnPOPrint;
+        private FontAwesome.Sharp.IconButton icnPOGenerate;
+        private System.Windows.Forms.PictureBox qrPOPic;
     }
 }

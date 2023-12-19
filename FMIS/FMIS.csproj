@@ -65,6 +65,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="budgetTracking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="budgetTracking.Designer.cs">
+      <DependentUpon>budgetTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="endUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="endUser.Designer.cs">
+      <DependentUpon>endUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="editPR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +97,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="budgetTracking.resx">
+      <DependentUpon>budgetTracking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="endUser.resx">
+      <DependentUpon>endUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="editPR.resx">
       <DependentUpon>editPR.cs</DependentUpon>
     </EmbeddedResource>

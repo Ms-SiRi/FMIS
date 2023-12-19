@@ -94,6 +94,7 @@
             this.PRPARTICULARS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PRREMARKS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PRDATE = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.PRSTATUS = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pendingPR = new System.Windows.Forms.TabPage();
             this.pendingList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -107,6 +108,7 @@
             this.columnHeader32 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader33 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader34 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader50 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.forPaymentPR = new System.Windows.Forms.TabPage();
             this.paymentList = new System.Windows.Forms.ListView();
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -120,6 +122,7 @@
             this.columnHeader39 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader40 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader41 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader51 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.accomplishedPR = new System.Windows.Forms.TabPage();
             this.accomplishedList = new System.Windows.Forms.ListView();
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -133,6 +136,7 @@
             this.columnHeader47 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader48 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader49 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader52 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel11 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -207,9 +211,11 @@
             this.btnCancelPR.Text = "Cancel PR";
             this.btnCancelPR.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelPR.UseVisualStyleBackColor = true;
+            this.btnCancelPR.Click += new System.EventHandler(this.btnCancelPR_Click);
             // 
             // btnUpdatePR
             // 
+            this.btnUpdatePR.Enabled = false;
             this.btnUpdatePR.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdatePR.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.btnUpdatePR.IconColor = System.Drawing.Color.SteelBlue;
@@ -294,6 +300,7 @@
             this.btnSettings.Text = "Settings";
             this.btnSettings.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnTrackBudget
             // 
@@ -310,6 +317,7 @@
             this.btnTrackBudget.Text = "Track Budget";
             this.btnTrackBudget.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTrackBudget.UseVisualStyleBackColor = true;
+            this.btnTrackBudget.Click += new System.EventHandler(this.btnTrackBudget_Click);
             // 
             // tabControl1
             // 
@@ -617,6 +625,7 @@
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // dateFROM
             // 
@@ -673,7 +682,8 @@
             this.PRCOST,
             this.PRPARTICULARS,
             this.PRREMARKS,
-            this.PRDATE});
+            this.PRDATE,
+            this.PRSTATUS});
             this.listviewPR.FullRowSelect = true;
             this.listviewPR.GridLines = true;
             this.listviewPR.HideSelection = false;
@@ -732,6 +742,10 @@
             // 
             this.PRDATE.Text = "PRDATE";
             // 
+            // PRSTATUS
+            // 
+            this.PRSTATUS.Text = "PRSTATUS";
+            // 
             // pendingPR
             // 
             this.pendingPR.Controls.Add(this.pendingList);
@@ -759,7 +773,8 @@
             this.columnHeader31,
             this.columnHeader32,
             this.columnHeader33,
-            this.columnHeader34});
+            this.columnHeader34,
+            this.columnHeader50});
             this.pendingList.FullRowSelect = true;
             this.pendingList.GridLines = true;
             this.pendingList.HideSelection = false;
@@ -819,6 +834,10 @@
             // 
             this.columnHeader34.Text = "PRDATE";
             // 
+            // columnHeader50
+            // 
+            this.columnHeader50.Text = "PRSTATUS";
+            // 
             // forPaymentPR
             // 
             this.forPaymentPR.Controls.Add(this.paymentList);
@@ -846,7 +865,8 @@
             this.columnHeader38,
             this.columnHeader39,
             this.columnHeader40,
-            this.columnHeader41});
+            this.columnHeader41,
+            this.columnHeader51});
             this.paymentList.FullRowSelect = true;
             this.paymentList.GridLines = true;
             this.paymentList.HideSelection = false;
@@ -856,6 +876,7 @@
             this.paymentList.TabIndex = 2;
             this.paymentList.UseCompatibleStateImageBehavior = false;
             this.paymentList.View = System.Windows.Forms.View.Details;
+            this.paymentList.SelectedIndexChanged += new System.EventHandler(this.paymentList_SelectedIndexChanged);
             // 
             // columnHeader9
             // 
@@ -904,6 +925,10 @@
             // 
             this.columnHeader41.Text = "PRDATE";
             // 
+            // columnHeader51
+            // 
+            this.columnHeader51.Text = "PRSTATUS";
+            // 
             // accomplishedPR
             // 
             this.accomplishedPR.Controls.Add(this.accomplishedList);
@@ -931,7 +956,8 @@
             this.columnHeader46,
             this.columnHeader47,
             this.columnHeader48,
-            this.columnHeader49});
+            this.columnHeader49,
+            this.columnHeader52});
             this.accomplishedList.FullRowSelect = true;
             this.accomplishedList.GridLines = true;
             this.accomplishedList.HideSelection = false;
@@ -989,6 +1015,10 @@
             // columnHeader49
             // 
             this.columnHeader49.Text = "PRDATE";
+            // 
+            // columnHeader52
+            // 
+            this.columnHeader52.Text = "PRSTATUS";
             // 
             // panel11
             // 
@@ -1392,6 +1422,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader47;
         private System.Windows.Forms.ColumnHeader columnHeader48;
         private System.Windows.Forms.ColumnHeader columnHeader49;
+        private System.Windows.Forms.ColumnHeader PRSTATUS;
+        private System.Windows.Forms.ColumnHeader columnHeader50;
+        private System.Windows.Forms.ColumnHeader columnHeader51;
+        private System.Windows.Forms.ColumnHeader columnHeader52;
     }
 }
 

@@ -55,38 +55,38 @@
             this.btnPOattach = new FontAwesome.Sharp.IconButton();
             this.btnPRattach = new FontAwesome.Sharp.IconButton();
             this.txtWasteLoc = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblWaste = new System.Windows.Forms.Label();
             this.txtSummaryLoc = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.lblSummary = new System.Windows.Forms.Label();
             this.txtMRLoc = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
+            this.lblMR = new System.Windows.Forms.Label();
             this.txtPARLoc = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblPAR = new System.Windows.Forms.Label();
             this.txtInspectionLoc = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblInspection = new System.Windows.Forms.Label();
             this.txtVoucherLoc = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblVoucher = new System.Windows.Forms.Label();
             this.txtObRLoc = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.lblObr = new System.Windows.Forms.Label();
             this.txtAwardLoc = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblAward = new System.Windows.Forms.Label();
             this.txtPOLoc = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblPO = new System.Windows.Forms.Label();
             this.txtPRLoc = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblPR = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.qrPrint = new FontAwesome.Sharp.IconButton();
             this.btnGenerate = new FontAwesome.Sharp.IconButton();
             this.qrPic = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.iconButton3 = new FontAwesome.Sharp.IconButton();
-            this.iconButton4 = new FontAwesome.Sharp.IconButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.icnPOPrint = new FontAwesome.Sharp.IconButton();
+            this.icnPOGenerate = new FontAwesome.Sharp.IconButton();
+            this.qrPOPic = new System.Windows.Forms.PictureBox();
             this.colorWithAlpha2 = new System.Windows.Forms.ColorWithAlpha();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtPOyr = new System.Windows.Forms.TextBox();
+            this.txtPOctrl = new System.Windows.Forms.TextBox();
+            this.txtcnPO = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -95,6 +95,7 @@
             this.txtParticulars = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtdate = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -108,15 +109,14 @@
             this.comboType = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCtrl = new System.Windows.Forms.TextBox();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.txtdate = new System.Windows.Forms.TextBox();
+            this.icnCancel = new FontAwesome.Sharp.IconButton();
+            this.icnUpdate = new FontAwesome.Sharp.IconButton();
             this.alphaGradientPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qrPOPic)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,7 +150,8 @@
             this.alphaGradientPanel1.ImagePadding = new System.Windows.Forms.Padding(5);
             this.alphaGradientPanel1.ImagePosition = System.Windows.Forms.ImagePosition.BottomRight;
             this.alphaGradientPanel1.ImageSize = new System.Drawing.Size(48, 48);
-            this.alphaGradientPanel1.Location = new System.Drawing.Point(2, 2);
+            this.alphaGradientPanel1.Location = new System.Drawing.Point(3, 2);
+            this.alphaGradientPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.alphaGradientPanel1.Name = "alphaGradientPanel1";
             this.alphaGradientPanel1.Rounded = false;
             this.alphaGradientPanel1.Size = new System.Drawing.Size(735, 74);
@@ -201,29 +202,31 @@
             this.groupBox2.Controls.Add(this.btnPOattach);
             this.groupBox2.Controls.Add(this.btnPRattach);
             this.groupBox2.Controls.Add(this.txtWasteLoc);
-            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.lblWaste);
             this.groupBox2.Controls.Add(this.txtSummaryLoc);
-            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.lblSummary);
             this.groupBox2.Controls.Add(this.txtMRLoc);
-            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.lblMR);
             this.groupBox2.Controls.Add(this.txtPARLoc);
-            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.lblPAR);
             this.groupBox2.Controls.Add(this.txtInspectionLoc);
-            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.lblInspection);
             this.groupBox2.Controls.Add(this.txtVoucherLoc);
-            this.groupBox2.Controls.Add(this.label17);
+            this.groupBox2.Controls.Add(this.lblVoucher);
             this.groupBox2.Controls.Add(this.txtObRLoc);
-            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.lblObr);
             this.groupBox2.Controls.Add(this.txtAwardLoc);
-            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.lblAward);
             this.groupBox2.Controls.Add(this.txtPOLoc);
-            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.lblPO);
             this.groupBox2.Controls.Add(this.txtPRLoc);
-            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.lblPR);
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(757, 82);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(922, 562);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Size = new System.Drawing.Size(923, 562);
             this.groupBox2.TabIndex = 81;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Check List";
@@ -237,13 +240,15 @@
             this.btnOpenWaste.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenWaste.IconSize = 25;
             this.btnOpenWaste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenWaste.Location = new System.Drawing.Point(602, 512);
+            this.btnOpenWaste.Location = new System.Drawing.Point(603, 512);
+            this.btnOpenWaste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenWaste.Name = "btnOpenWaste";
             this.btnOpenWaste.Size = new System.Drawing.Size(117, 34);
             this.btnOpenWaste.TabIndex = 76;
             this.btnOpenWaste.Text = "Open File";
             this.btnOpenWaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenWaste.UseVisualStyleBackColor = true;
+            this.btnOpenWaste.Click += new System.EventHandler(this.btnOpenWaste_Click);
             // 
             // btnOpenSum
             // 
@@ -254,13 +259,15 @@
             this.btnOpenSum.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenSum.IconSize = 25;
             this.btnOpenSum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenSum.Location = new System.Drawing.Point(602, 457);
+            this.btnOpenSum.Location = new System.Drawing.Point(603, 457);
+            this.btnOpenSum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenSum.Name = "btnOpenSum";
             this.btnOpenSum.Size = new System.Drawing.Size(117, 34);
             this.btnOpenSum.TabIndex = 75;
             this.btnOpenSum.Text = "Open File";
             this.btnOpenSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenSum.UseVisualStyleBackColor = true;
+            this.btnOpenSum.Click += new System.EventHandler(this.btnOpenSum_Click);
             // 
             // btnOpenMR
             // 
@@ -271,13 +278,15 @@
             this.btnOpenMR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenMR.IconSize = 25;
             this.btnOpenMR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenMR.Location = new System.Drawing.Point(602, 406);
+            this.btnOpenMR.Location = new System.Drawing.Point(603, 406);
+            this.btnOpenMR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenMR.Name = "btnOpenMR";
             this.btnOpenMR.Size = new System.Drawing.Size(117, 34);
             this.btnOpenMR.TabIndex = 74;
             this.btnOpenMR.Text = "Open File";
             this.btnOpenMR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenMR.UseVisualStyleBackColor = true;
+            this.btnOpenMR.Click += new System.EventHandler(this.btnOpenMR_Click);
             // 
             // btnOpenPAR
             // 
@@ -288,13 +297,15 @@
             this.btnOpenPAR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenPAR.IconSize = 25;
             this.btnOpenPAR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenPAR.Location = new System.Drawing.Point(602, 351);
+            this.btnOpenPAR.Location = new System.Drawing.Point(603, 351);
+            this.btnOpenPAR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenPAR.Name = "btnOpenPAR";
             this.btnOpenPAR.Size = new System.Drawing.Size(117, 34);
             this.btnOpenPAR.TabIndex = 73;
             this.btnOpenPAR.Text = "Open File";
             this.btnOpenPAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenPAR.UseVisualStyleBackColor = true;
+            this.btnOpenPAR.Click += new System.EventHandler(this.btnOpenPAR_Click);
             // 
             // btnOpenInsp
             // 
@@ -305,13 +316,15 @@
             this.btnOpenInsp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenInsp.IconSize = 25;
             this.btnOpenInsp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenInsp.Location = new System.Drawing.Point(602, 307);
+            this.btnOpenInsp.Location = new System.Drawing.Point(603, 306);
+            this.btnOpenInsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenInsp.Name = "btnOpenInsp";
             this.btnOpenInsp.Size = new System.Drawing.Size(117, 34);
             this.btnOpenInsp.TabIndex = 72;
             this.btnOpenInsp.Text = "Open File";
             this.btnOpenInsp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenInsp.UseVisualStyleBackColor = true;
+            this.btnOpenInsp.Click += new System.EventHandler(this.btnOpenInsp_Click);
             // 
             // btnOpenVouch
             // 
@@ -322,13 +335,15 @@
             this.btnOpenVouch.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenVouch.IconSize = 25;
             this.btnOpenVouch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenVouch.Location = new System.Drawing.Point(602, 252);
+            this.btnOpenVouch.Location = new System.Drawing.Point(603, 252);
+            this.btnOpenVouch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenVouch.Name = "btnOpenVouch";
             this.btnOpenVouch.Size = new System.Drawing.Size(117, 34);
             this.btnOpenVouch.TabIndex = 71;
             this.btnOpenVouch.Text = "Open File";
             this.btnOpenVouch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenVouch.UseVisualStyleBackColor = true;
+            this.btnOpenVouch.Click += new System.EventHandler(this.btnOpenVouch_Click);
             // 
             // btnOpenObR
             // 
@@ -339,13 +354,15 @@
             this.btnOpenObR.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenObR.IconSize = 25;
             this.btnOpenObR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenObR.Location = new System.Drawing.Point(602, 201);
+            this.btnOpenObR.Location = new System.Drawing.Point(603, 201);
+            this.btnOpenObR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenObR.Name = "btnOpenObR";
             this.btnOpenObR.Size = new System.Drawing.Size(117, 34);
             this.btnOpenObR.TabIndex = 70;
             this.btnOpenObR.Text = "Open File";
             this.btnOpenObR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenObR.UseVisualStyleBackColor = true;
+            this.btnOpenObR.Click += new System.EventHandler(this.btnOpenObR_Click);
             // 
             // btnOpenAw
             // 
@@ -356,13 +373,15 @@
             this.btnOpenAw.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenAw.IconSize = 25;
             this.btnOpenAw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenAw.Location = new System.Drawing.Point(602, 146);
+            this.btnOpenAw.Location = new System.Drawing.Point(603, 146);
+            this.btnOpenAw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenAw.Name = "btnOpenAw";
             this.btnOpenAw.Size = new System.Drawing.Size(117, 34);
             this.btnOpenAw.TabIndex = 69;
             this.btnOpenAw.Text = "Open File";
             this.btnOpenAw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenAw.UseVisualStyleBackColor = true;
+            this.btnOpenAw.Click += new System.EventHandler(this.btnOpenAw_Click);
             // 
             // btnOpenPO
             // 
@@ -373,13 +392,15 @@
             this.btnOpenPO.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnOpenPO.IconSize = 25;
             this.btnOpenPO.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpenPO.Location = new System.Drawing.Point(602, 91);
+            this.btnOpenPO.Location = new System.Drawing.Point(603, 91);
+            this.btnOpenPO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOpenPO.Name = "btnOpenPO";
             this.btnOpenPO.Size = new System.Drawing.Size(117, 34);
             this.btnOpenPO.TabIndex = 68;
             this.btnOpenPO.Text = "Open File";
             this.btnOpenPO.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnOpenPO.UseVisualStyleBackColor = true;
+            this.btnOpenPO.Click += new System.EventHandler(this.btnOpenPO_Click);
             // 
             // btnPROpen
             // 
@@ -389,13 +410,15 @@
             this.btnPROpen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPROpen.IconSize = 25;
             this.btnPROpen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPROpen.Location = new System.Drawing.Point(602, 36);
+            this.btnPROpen.Location = new System.Drawing.Point(603, 36);
+            this.btnPROpen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPROpen.Name = "btnPROpen";
             this.btnPROpen.Size = new System.Drawing.Size(117, 34);
             this.btnPROpen.TabIndex = 67;
             this.btnPROpen.Text = "Open File";
             this.btnPROpen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPROpen.UseVisualStyleBackColor = true;
+            this.btnPROpen.Click += new System.EventHandler(this.btnPROpen_Click);
             // 
             // btnAttachWaste
             // 
@@ -407,12 +430,14 @@
             this.btnAttachWaste.IconSize = 25;
             this.btnAttachWaste.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachWaste.Location = new System.Drawing.Point(479, 512);
+            this.btnAttachWaste.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachWaste.Name = "btnAttachWaste";
             this.btnAttachWaste.Size = new System.Drawing.Size(117, 34);
             this.btnAttachWaste.TabIndex = 66;
             this.btnAttachWaste.Text = "Attach File";
             this.btnAttachWaste.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachWaste.UseVisualStyleBackColor = true;
+            this.btnAttachWaste.Click += new System.EventHandler(this.btnAttachWaste_Click);
             // 
             // btnAttachSum
             // 
@@ -424,12 +449,14 @@
             this.btnAttachSum.IconSize = 25;
             this.btnAttachSum.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachSum.Location = new System.Drawing.Point(479, 457);
+            this.btnAttachSum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachSum.Name = "btnAttachSum";
             this.btnAttachSum.Size = new System.Drawing.Size(117, 34);
             this.btnAttachSum.TabIndex = 65;
             this.btnAttachSum.Text = "Attach File";
             this.btnAttachSum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachSum.UseVisualStyleBackColor = true;
+            this.btnAttachSum.Click += new System.EventHandler(this.btnAttachSum_Click);
             // 
             // btnAttachMR
             // 
@@ -441,12 +468,14 @@
             this.btnAttachMR.IconSize = 25;
             this.btnAttachMR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachMR.Location = new System.Drawing.Point(479, 406);
+            this.btnAttachMR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachMR.Name = "btnAttachMR";
             this.btnAttachMR.Size = new System.Drawing.Size(117, 34);
             this.btnAttachMR.TabIndex = 64;
             this.btnAttachMR.Text = "Attach File";
             this.btnAttachMR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachMR.UseVisualStyleBackColor = true;
+            this.btnAttachMR.Click += new System.EventHandler(this.btnAttachMR_Click);
             // 
             // btnAttachPAR
             // 
@@ -458,12 +487,14 @@
             this.btnAttachPAR.IconSize = 25;
             this.btnAttachPAR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachPAR.Location = new System.Drawing.Point(479, 351);
+            this.btnAttachPAR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachPAR.Name = "btnAttachPAR";
             this.btnAttachPAR.Size = new System.Drawing.Size(117, 34);
             this.btnAttachPAR.TabIndex = 63;
             this.btnAttachPAR.Text = "Attach File";
             this.btnAttachPAR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachPAR.UseVisualStyleBackColor = true;
+            this.btnAttachPAR.Click += new System.EventHandler(this.btnAttachPAR_Click);
             // 
             // btnAttachInsp
             // 
@@ -474,13 +505,15 @@
             this.btnAttachInsp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAttachInsp.IconSize = 25;
             this.btnAttachInsp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAttachInsp.Location = new System.Drawing.Point(479, 307);
+            this.btnAttachInsp.Location = new System.Drawing.Point(479, 306);
+            this.btnAttachInsp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachInsp.Name = "btnAttachInsp";
             this.btnAttachInsp.Size = new System.Drawing.Size(117, 34);
             this.btnAttachInsp.TabIndex = 62;
             this.btnAttachInsp.Text = "Attach File";
             this.btnAttachInsp.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachInsp.UseVisualStyleBackColor = true;
+            this.btnAttachInsp.Click += new System.EventHandler(this.btnAttachInsp_Click);
             // 
             // btnAttachVouch
             // 
@@ -492,12 +525,14 @@
             this.btnAttachVouch.IconSize = 25;
             this.btnAttachVouch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachVouch.Location = new System.Drawing.Point(479, 252);
+            this.btnAttachVouch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachVouch.Name = "btnAttachVouch";
             this.btnAttachVouch.Size = new System.Drawing.Size(117, 34);
             this.btnAttachVouch.TabIndex = 61;
             this.btnAttachVouch.Text = "Attach File";
             this.btnAttachVouch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachVouch.UseVisualStyleBackColor = true;
+            this.btnAttachVouch.Click += new System.EventHandler(this.btnAttachVouch_Click);
             // 
             // btnAttachObR
             // 
@@ -509,12 +544,14 @@
             this.btnAttachObR.IconSize = 25;
             this.btnAttachObR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachObR.Location = new System.Drawing.Point(479, 201);
+            this.btnAttachObR.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachObR.Name = "btnAttachObR";
             this.btnAttachObR.Size = new System.Drawing.Size(117, 34);
             this.btnAttachObR.TabIndex = 60;
             this.btnAttachObR.Text = "Attach File";
             this.btnAttachObR.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachObR.UseVisualStyleBackColor = true;
+            this.btnAttachObR.Click += new System.EventHandler(this.btnAttachObR_Click);
             // 
             // btnAttachAw
             // 
@@ -526,12 +563,14 @@
             this.btnAttachAw.IconSize = 25;
             this.btnAttachAw.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAttachAw.Location = new System.Drawing.Point(479, 146);
+            this.btnAttachAw.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAttachAw.Name = "btnAttachAw";
             this.btnAttachAw.Size = new System.Drawing.Size(117, 34);
             this.btnAttachAw.TabIndex = 59;
             this.btnAttachAw.Text = "Attach File";
             this.btnAttachAw.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAttachAw.UseVisualStyleBackColor = true;
+            this.btnAttachAw.Click += new System.EventHandler(this.btnAttachAw_Click);
             // 
             // btnPOattach
             // 
@@ -543,12 +582,14 @@
             this.btnPOattach.IconSize = 25;
             this.btnPOattach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPOattach.Location = new System.Drawing.Point(479, 91);
+            this.btnPOattach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPOattach.Name = "btnPOattach";
             this.btnPOattach.Size = new System.Drawing.Size(117, 34);
             this.btnPOattach.TabIndex = 58;
             this.btnPOattach.Text = "Attach File";
             this.btnPOattach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPOattach.UseVisualStyleBackColor = true;
+            this.btnPOattach.Click += new System.EventHandler(this.btnPOattach_Click);
             // 
             // btnPRattach
             // 
@@ -559,211 +600,224 @@
             this.btnPRattach.IconSize = 25;
             this.btnPRattach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPRattach.Location = new System.Drawing.Point(479, 36);
+            this.btnPRattach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPRattach.Name = "btnPRattach";
             this.btnPRattach.Size = new System.Drawing.Size(117, 34);
             this.btnPRattach.TabIndex = 57;
             this.btnPRattach.Text = "Attach File";
             this.btnPRattach.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPRattach.UseVisualStyleBackColor = true;
+            this.btnPRattach.Click += new System.EventHandler(this.btnPRattach_Click);
             // 
             // txtWasteLoc
             // 
             this.txtWasteLoc.Enabled = false;
             this.txtWasteLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWasteLoc.Location = new System.Drawing.Point(252, 515);
+            this.txtWasteLoc.Location = new System.Drawing.Point(252, 514);
+            this.txtWasteLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtWasteLoc.Name = "txtWasteLoc";
             this.txtWasteLoc.Size = new System.Drawing.Size(221, 28);
             this.txtWasteLoc.TabIndex = 55;
             // 
-            // label18
+            // lblWaste
             // 
-            this.label18.AutoSize = true;
-            this.label18.Enabled = false;
-            this.label18.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(6, 518);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(115, 20);
-            this.label18.TabIndex = 56;
-            this.label18.Text = "Waste File:";
+            this.lblWaste.AutoSize = true;
+            this.lblWaste.Enabled = false;
+            this.lblWaste.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWaste.Location = new System.Drawing.Point(5, 518);
+            this.lblWaste.Name = "lblWaste";
+            this.lblWaste.Size = new System.Drawing.Size(115, 20);
+            this.lblWaste.TabIndex = 56;
+            this.lblWaste.Text = "Waste File:";
             // 
             // txtSummaryLoc
             // 
             this.txtSummaryLoc.Enabled = false;
             this.txtSummaryLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSummaryLoc.Location = new System.Drawing.Point(252, 460);
+            this.txtSummaryLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSummaryLoc.Name = "txtSummaryLoc";
             this.txtSummaryLoc.Size = new System.Drawing.Size(221, 28);
             this.txtSummaryLoc.TabIndex = 52;
             this.txtSummaryLoc.TextChanged += new System.EventHandler(this.txtSummaryLoc_TextChanged);
             // 
-            // label19
+            // lblSummary
             // 
-            this.label19.AutoSize = true;
-            this.label19.Enabled = false;
-            this.label19.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(6, 463);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(146, 20);
-            this.label19.TabIndex = 53;
-            this.label19.Text = "Summary File:";
+            this.lblSummary.AutoSize = true;
+            this.lblSummary.Enabled = false;
+            this.lblSummary.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSummary.Location = new System.Drawing.Point(5, 463);
+            this.lblSummary.Name = "lblSummary";
+            this.lblSummary.Size = new System.Drawing.Size(146, 20);
+            this.lblSummary.TabIndex = 53;
+            this.lblSummary.Text = "Summary File:";
             // 
             // txtMRLoc
             // 
             this.txtMRLoc.Enabled = false;
             this.txtMRLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMRLoc.Location = new System.Drawing.Point(252, 409);
+            this.txtMRLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMRLoc.Name = "txtMRLoc";
             this.txtMRLoc.Size = new System.Drawing.Size(221, 28);
             this.txtMRLoc.TabIndex = 49;
             // 
-            // label20
+            // lblMR
             // 
-            this.label20.AutoSize = true;
-            this.label20.Enabled = false;
-            this.label20.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 412);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(85, 20);
-            this.label20.TabIndex = 50;
-            this.label20.Text = "MR File:";
+            this.lblMR.AutoSize = true;
+            this.lblMR.Enabled = false;
+            this.lblMR.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMR.Location = new System.Drawing.Point(5, 412);
+            this.lblMR.Name = "lblMR";
+            this.lblMR.Size = new System.Drawing.Size(85, 20);
+            this.lblMR.TabIndex = 50;
+            this.lblMR.Text = "MR File:";
             // 
             // txtPARLoc
             // 
             this.txtPARLoc.Enabled = false;
             this.txtPARLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPARLoc.Location = new System.Drawing.Point(252, 354);
+            this.txtPARLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPARLoc.Name = "txtPARLoc";
             this.txtPARLoc.Size = new System.Drawing.Size(221, 28);
             this.txtPARLoc.TabIndex = 46;
             // 
-            // label21
+            // lblPAR
             // 
-            this.label21.AutoSize = true;
-            this.label21.Enabled = false;
-            this.label21.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(6, 357);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(94, 20);
-            this.label21.TabIndex = 47;
-            this.label21.Text = "PAR File:";
+            this.lblPAR.AutoSize = true;
+            this.lblPAR.Enabled = false;
+            this.lblPAR.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPAR.Location = new System.Drawing.Point(5, 357);
+            this.lblPAR.Name = "lblPAR";
+            this.lblPAR.Size = new System.Drawing.Size(94, 20);
+            this.lblPAR.TabIndex = 47;
+            this.lblPAR.Text = "PAR File:";
             // 
             // txtInspectionLoc
             // 
             this.txtInspectionLoc.Enabled = false;
             this.txtInspectionLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInspectionLoc.Location = new System.Drawing.Point(252, 310);
+            this.txtInspectionLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInspectionLoc.Name = "txtInspectionLoc";
             this.txtInspectionLoc.Size = new System.Drawing.Size(221, 28);
             this.txtInspectionLoc.TabIndex = 43;
             // 
-            // label16
+            // lblInspection
             // 
-            this.label16.AutoSize = true;
-            this.label16.Enabled = false;
-            this.label16.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 313);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(158, 20);
-            this.label16.TabIndex = 44;
-            this.label16.Text = "Inspection File:";
+            this.lblInspection.AutoSize = true;
+            this.lblInspection.Enabled = false;
+            this.lblInspection.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInspection.Location = new System.Drawing.Point(5, 313);
+            this.lblInspection.Name = "lblInspection";
+            this.lblInspection.Size = new System.Drawing.Size(158, 20);
+            this.lblInspection.TabIndex = 44;
+            this.lblInspection.Text = "Inspection File:";
             // 
             // txtVoucherLoc
             // 
             this.txtVoucherLoc.Enabled = false;
             this.txtVoucherLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVoucherLoc.Location = new System.Drawing.Point(252, 255);
+            this.txtVoucherLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVoucherLoc.Name = "txtVoucherLoc";
             this.txtVoucherLoc.Size = new System.Drawing.Size(221, 28);
             this.txtVoucherLoc.TabIndex = 40;
+            this.txtVoucherLoc.TextChanged += new System.EventHandler(this.txtVoucherLoc_TextChanged);
             // 
-            // label17
+            // lblVoucher
             // 
-            this.label17.AutoSize = true;
-            this.label17.Enabled = false;
-            this.label17.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(6, 258);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(134, 20);
-            this.label17.TabIndex = 41;
-            this.label17.Text = "Voucher File:";
+            this.lblVoucher.AutoSize = true;
+            this.lblVoucher.Enabled = false;
+            this.lblVoucher.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVoucher.Location = new System.Drawing.Point(5, 258);
+            this.lblVoucher.Name = "lblVoucher";
+            this.lblVoucher.Size = new System.Drawing.Size(134, 20);
+            this.lblVoucher.TabIndex = 41;
+            this.lblVoucher.Text = "Voucher File:";
             // 
             // txtObRLoc
             // 
             this.txtObRLoc.Enabled = false;
             this.txtObRLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObRLoc.Location = new System.Drawing.Point(252, 204);
+            this.txtObRLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtObRLoc.Name = "txtObRLoc";
             this.txtObRLoc.Size = new System.Drawing.Size(221, 28);
             this.txtObRLoc.TabIndex = 37;
             // 
-            // label14
+            // lblObr
             // 
-            this.label14.AutoSize = true;
-            this.label14.Enabled = false;
-            this.label14.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 207);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(238, 20);
-            this.label14.TabIndex = 38;
-            this.label14.Text = "Obligation Request File:";
+            this.lblObr.AutoSize = true;
+            this.lblObr.Enabled = false;
+            this.lblObr.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObr.Location = new System.Drawing.Point(5, 207);
+            this.lblObr.Name = "lblObr";
+            this.lblObr.Size = new System.Drawing.Size(238, 20);
+            this.lblObr.TabIndex = 38;
+            this.lblObr.Text = "Obligation Request File:";
             // 
             // txtAwardLoc
             // 
             this.txtAwardLoc.Enabled = false;
             this.txtAwardLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAwardLoc.Location = new System.Drawing.Point(252, 149);
+            this.txtAwardLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAwardLoc.Name = "txtAwardLoc";
             this.txtAwardLoc.Size = new System.Drawing.Size(221, 28);
             this.txtAwardLoc.TabIndex = 34;
             // 
-            // label15
+            // lblAward
             // 
-            this.label15.AutoSize = true;
-            this.label15.Enabled = false;
-            this.label15.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(6, 152);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(209, 20);
-            this.label15.TabIndex = 35;
-            this.label15.Text = "Notice of Award File:";
+            this.lblAward.AutoSize = true;
+            this.lblAward.Enabled = false;
+            this.lblAward.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAward.Location = new System.Drawing.Point(5, 153);
+            this.lblAward.Name = "lblAward";
+            this.lblAward.Size = new System.Drawing.Size(209, 20);
+            this.lblAward.TabIndex = 35;
+            this.lblAward.Text = "Notice of Award File:";
             // 
             // txtPOLoc
             // 
             this.txtPOLoc.Enabled = false;
             this.txtPOLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPOLoc.Location = new System.Drawing.Point(252, 94);
+            this.txtPOLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPOLoc.Name = "txtPOLoc";
             this.txtPOLoc.Size = new System.Drawing.Size(221, 28);
             this.txtPOLoc.TabIndex = 31;
             // 
-            // label12
+            // lblPO
             // 
-            this.label12.AutoSize = true;
-            this.label12.Enabled = false;
-            this.label12.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(6, 97);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(201, 20);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Purchase Order File:";
+            this.lblPO.AutoSize = true;
+            this.lblPO.Enabled = false;
+            this.lblPO.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPO.Location = new System.Drawing.Point(5, 97);
+            this.lblPO.Name = "lblPO";
+            this.lblPO.Size = new System.Drawing.Size(201, 20);
+            this.lblPO.TabIndex = 32;
+            this.lblPO.Text = "Purchase Order File:";
             // 
             // txtPRLoc
             // 
             this.txtPRLoc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPRLoc.Location = new System.Drawing.Point(252, 39);
+            this.txtPRLoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPRLoc.Name = "txtPRLoc";
             this.txtPRLoc.Size = new System.Drawing.Size(221, 28);
             this.txtPRLoc.TabIndex = 29;
             // 
-            // label11
+            // lblPR
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(225, 20);
-            this.label11.TabIndex = 29;
-            this.label11.Text = "Purchase Request File:";
+            this.lblPR.AutoSize = true;
+            this.lblPR.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPR.Location = new System.Drawing.Point(5, 42);
+            this.lblPR.Name = "lblPR";
+            this.lblPR.Size = new System.Drawing.Size(225, 20);
+            this.lblPR.TabIndex = 29;
+            this.lblPR.Text = "Purchase Request File:";
             // 
             // groupBox3
             // 
@@ -772,7 +826,9 @@
             this.groupBox3.Controls.Add(this.qrPic);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(757, 650);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox3.Size = new System.Drawing.Size(387, 262);
             this.groupBox3.TabIndex = 82;
             this.groupBox3.TabStop = false;
@@ -780,20 +836,21 @@
             // 
             // qrPrint
             // 
-            this.qrPrint.Enabled = false;
             this.qrPrint.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.qrPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
             this.qrPrint.IconColor = System.Drawing.Color.Black;
             this.qrPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.qrPrint.IconSize = 35;
             this.qrPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.qrPrint.Location = new System.Drawing.Point(212, 93);
+            this.qrPrint.Location = new System.Drawing.Point(212, 94);
+            this.qrPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qrPrint.Name = "qrPrint";
-            this.qrPrint.Size = new System.Drawing.Size(162, 43);
+            this.qrPrint.Size = new System.Drawing.Size(163, 43);
             this.qrPrint.TabIndex = 2;
             this.qrPrint.Text = "Print QR";
             this.qrPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.qrPrint.UseVisualStyleBackColor = true;
+            this.qrPrint.Click += new System.EventHandler(this.qrPrint_Click);
             // 
             // btnGenerate
             // 
@@ -805,16 +862,19 @@
             this.btnGenerate.IconSize = 35;
             this.btnGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGenerate.Location = new System.Drawing.Point(212, 44);
+            this.btnGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(162, 43);
+            this.btnGenerate.Size = new System.Drawing.Size(163, 43);
             this.btnGenerate.TabIndex = 1;
             this.btnGenerate.Text = "Generate QR";
             this.btnGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // qrPic
             // 
-            this.qrPic.Location = new System.Drawing.Point(10, 44);
+            this.qrPic.Location = new System.Drawing.Point(11, 44);
+            this.qrPic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.qrPic.Name = "qrPic";
             this.qrPic.Size = new System.Drawing.Size(185, 185);
             this.qrPic.TabIndex = 0;
@@ -822,56 +882,65 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.iconButton3);
-            this.groupBox4.Controls.Add(this.iconButton4);
-            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Controls.Add(this.icnPOPrint);
+            this.groupBox4.Controls.Add(this.icnPOGenerate);
+            this.groupBox4.Controls.Add(this.qrPOPic);
             this.groupBox4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(1150, 656);
+            this.groupBox4.Location = new System.Drawing.Point(1149, 656);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox4.Size = new System.Drawing.Size(387, 262);
             this.groupBox4.TabIndex = 83;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Generate Purchase Order QR";
             // 
-            // iconButton3
+            // icnPOPrint
             // 
-            this.iconButton3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.iconButton3.IconColor = System.Drawing.Color.Black;
-            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton3.IconSize = 35;
-            this.iconButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton3.Location = new System.Drawing.Point(212, 93);
-            this.iconButton3.Name = "iconButton3";
-            this.iconButton3.Size = new System.Drawing.Size(162, 43);
-            this.iconButton3.TabIndex = 2;
-            this.iconButton3.Text = "Print QR";
-            this.iconButton3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton3.UseVisualStyleBackColor = true;
+            this.icnPOPrint.Enabled = false;
+            this.icnPOPrint.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnPOPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.icnPOPrint.IconColor = System.Drawing.Color.Black;
+            this.icnPOPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnPOPrint.IconSize = 35;
+            this.icnPOPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnPOPrint.Location = new System.Drawing.Point(212, 94);
+            this.icnPOPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.icnPOPrint.Name = "icnPOPrint";
+            this.icnPOPrint.Size = new System.Drawing.Size(163, 43);
+            this.icnPOPrint.TabIndex = 2;
+            this.icnPOPrint.Text = "Print QR";
+            this.icnPOPrint.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnPOPrint.UseVisualStyleBackColor = true;
+            this.icnPOPrint.Click += new System.EventHandler(this.icnPOPrint_Click);
             // 
-            // iconButton4
+            // icnPOGenerate
             // 
-            this.iconButton4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
-            this.iconButton4.IconColor = System.Drawing.Color.Black;
-            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton4.IconSize = 35;
-            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton4.Location = new System.Drawing.Point(212, 44);
-            this.iconButton4.Name = "iconButton4";
-            this.iconButton4.Size = new System.Drawing.Size(162, 43);
-            this.iconButton4.TabIndex = 1;
-            this.iconButton4.Text = "Generate QR";
-            this.iconButton4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton4.UseVisualStyleBackColor = true;
+            this.icnPOGenerate.Enabled = false;
+            this.icnPOGenerate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnPOGenerate.IconChar = FontAwesome.Sharp.IconChar.Qrcode;
+            this.icnPOGenerate.IconColor = System.Drawing.Color.Black;
+            this.icnPOGenerate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnPOGenerate.IconSize = 35;
+            this.icnPOGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnPOGenerate.Location = new System.Drawing.Point(212, 44);
+            this.icnPOGenerate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.icnPOGenerate.Name = "icnPOGenerate";
+            this.icnPOGenerate.Size = new System.Drawing.Size(163, 43);
+            this.icnPOGenerate.TabIndex = 1;
+            this.icnPOGenerate.Text = "Generate QR";
+            this.icnPOGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnPOGenerate.UseVisualStyleBackColor = true;
+            this.icnPOGenerate.Click += new System.EventHandler(this.icnPOGenerate_Click);
             // 
-            // pictureBox1
+            // qrPOPic
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(185, 185);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.qrPOPic.Location = new System.Drawing.Point(11, 44);
+            this.qrPOPic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.qrPOPic.Name = "qrPOPic";
+            this.qrPOPic.Size = new System.Drawing.Size(185, 185);
+            this.qrPOPic.TabIndex = 0;
+            this.qrPOPic.TabStop = false;
             // 
             // colorWithAlpha2
             // 
@@ -879,40 +948,42 @@
             this.colorWithAlpha2.Color = System.Drawing.Color.LightSkyBlue;
             this.colorWithAlpha2.Parent = null;
             // 
-            // textBox4
+            // txtPOyr
             // 
-            this.textBox4.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(283, 68);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(59, 32);
-            this.textBox4.TabIndex = 32;
-            this.textBox4.Text = "2023";
+            this.txtPOyr.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOyr.Location = new System.Drawing.Point(283, 68);
+            this.txtPOyr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPOyr.Name = "txtPOyr";
+            this.txtPOyr.ReadOnly = true;
+            this.txtPOyr.Size = new System.Drawing.Size(59, 32);
+            this.txtPOyr.TabIndex = 32;
             // 
-            // textBox6
+            // txtPOctrl
             // 
-            this.textBox6.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(343, 68);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(92, 32);
-            this.textBox6.TabIndex = 31;
-            this.textBox6.Text = "0001";
+            this.txtPOctrl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPOctrl.Location = new System.Drawing.Point(343, 68);
+            this.txtPOctrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPOctrl.Name = "txtPOctrl";
+            this.txtPOctrl.ReadOnly = true;
+            this.txtPOctrl.Size = new System.Drawing.Size(92, 32);
+            this.txtPOctrl.TabIndex = 31;
             // 
-            // textBox7
+            // txtcnPO
             // 
-            this.textBox7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(223, 68);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(59, 32);
-            this.textBox7.TabIndex = 30;
+            this.txtcnPO.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtcnPO.Location = new System.Drawing.Point(223, 68);
+            this.txtcnPO.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtcnPO.Name = "txtcnPO";
+            this.txtcnPO.ReadOnly = true;
+            this.txtcnPO.Size = new System.Drawing.Size(59, 32);
+            this.txtcnPO.TabIndex = 30;
+            this.txtcnPO.Text = "PO";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(6, 75);
+            this.label22.Location = new System.Drawing.Point(5, 75);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(211, 20);
             this.label22.TabIndex = 29;
@@ -921,17 +992,18 @@
             // txtRemarks
             // 
             this.txtRemarks.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRemarks.Location = new System.Drawing.Point(10, 603);
+            this.txtRemarks.Location = new System.Drawing.Point(11, 603);
+            this.txtRemarks.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(694, 198);
+            this.txtRemarks.Size = new System.Drawing.Size(695, 198);
             this.txtRemarks.TabIndex = 28;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 580);
+            this.label10.Location = new System.Drawing.Point(5, 580);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(187, 20);
             this.label10.TabIndex = 27;
@@ -940,16 +1012,17 @@
             // txtCost
             // 
             this.txtCost.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCost.Location = new System.Drawing.Point(522, 288);
+            this.txtCost.Location = new System.Drawing.Point(523, 288);
+            this.txtCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(182, 28);
+            this.txtCost.Size = new System.Drawing.Size(183, 28);
             this.txtCost.TabIndex = 26;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(407, 291);
+            this.label13.Location = new System.Drawing.Point(407, 290);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(113, 20);
             this.label13.TabIndex = 25;
@@ -958,17 +1031,18 @@
             // txtParticulars
             // 
             this.txtParticulars.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtParticulars.Location = new System.Drawing.Point(10, 364);
+            this.txtParticulars.Location = new System.Drawing.Point(11, 364);
+            this.txtParticulars.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtParticulars.Multiline = true;
             this.txtParticulars.Name = "txtParticulars";
-            this.txtParticulars.Size = new System.Drawing.Size(694, 198);
+            this.txtParticulars.Size = new System.Drawing.Size(695, 198);
             this.txtParticulars.TabIndex = 17;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(6, 39);
+            this.label2.Location = new System.Drawing.Point(5, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(167, 20);
             this.label2.TabIndex = 0;
@@ -977,9 +1051,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtdate);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtPOyr);
+            this.groupBox1.Controls.Add(this.txtPOctrl);
+            this.groupBox1.Controls.Add(this.txtcnPO);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.txtRemarks);
             this.groupBox1.Controls.Add(this.label10);
@@ -1002,17 +1076,28 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(15, 82);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 830);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(723, 830);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "                                   asdasa";
+            // 
+            // txtdate
+            // 
+            this.txtdate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtdate.Location = new System.Drawing.Point(527, 207);
+            this.txtdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtdate.Name = "txtdate";
+            this.txtdate.ReadOnly = true;
+            this.txtdate.Size = new System.Drawing.Size(183, 28);
+            this.txtdate.TabIndex = 33;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(6, 340);
+            this.label9.Location = new System.Drawing.Point(5, 340);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(118, 20);
             this.label9.TabIndex = 16;
@@ -1021,7 +1106,8 @@
             // txtDesc
             // 
             this.txtDesc.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesc.Location = new System.Drawing.Point(10, 288);
+            this.txtDesc.Location = new System.Drawing.Point(11, 288);
+            this.txtDesc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(379, 28);
             this.txtDesc.TabIndex = 15;
@@ -1030,7 +1116,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(6, 265);
+            this.label8.Location = new System.Drawing.Point(5, 265);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(177, 20);
             this.label8.TabIndex = 14;
@@ -1040,7 +1126,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(407, 205);
+            this.label7.Location = new System.Drawing.Point(407, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(60, 20);
             this.label7.TabIndex = 12;
@@ -1052,12 +1138,17 @@
             this.comboSource.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboSource.FormattingEnabled = true;
             this.comboSource.Items.AddRange(new object[] {
-            "Capital Outlay",
-            "MOOE"});
+            "Office Supplies",
+            "Fuel, Oil, Lubricants",
+            "R/M-Trans. Equipment",
+            "Other MOE",
+            "Capital Outlay"});
             this.comboSource.Location = new System.Drawing.Point(527, 166);
+            this.comboSource.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboSource.Name = "comboSource";
             this.comboSource.Size = new System.Drawing.Size(177, 30);
             this.comboSource.TabIndex = 11;
+            this.comboSource.SelectedIndexChanged += new System.EventHandler(this.comboSource_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -1074,7 +1165,8 @@
             this.comboUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboUser.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboUser.FormattingEnabled = true;
-            this.comboUser.Location = new System.Drawing.Point(177, 205);
+            this.comboUser.Location = new System.Drawing.Point(177, 206);
+            this.comboUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboUser.Name = "comboUser";
             this.comboUser.Size = new System.Drawing.Size(212, 30);
             this.comboUser.TabIndex = 9;
@@ -1083,7 +1175,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 205);
+            this.label5.Location = new System.Drawing.Point(5, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(101, 20);
             this.label5.TabIndex = 8;
@@ -1098,15 +1190,17 @@
             "Sangguniang Panlalawigan",
             "Vice Governor\'s Office"});
             this.comboDept.Location = new System.Drawing.Point(177, 166);
+            this.comboDept.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboDept.Name = "comboDept";
             this.comboDept.Size = new System.Drawing.Size(212, 30);
             this.comboDept.TabIndex = 7;
+            this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 166);
+            this.label4.Location = new System.Drawing.Point(5, 166);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 20);
             this.label4.TabIndex = 6;
@@ -1121,6 +1215,7 @@
             "PRR",
             "PRE"});
             this.comboType.Location = new System.Drawing.Point(177, 127);
+            this.comboType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(121, 30);
             this.comboType.TabIndex = 5;
@@ -1129,7 +1224,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 127);
+            this.label3.Location = new System.Drawing.Point(5, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 20);
             this.label3.TabIndex = 4;
@@ -1139,51 +1234,47 @@
             // 
             this.txtCtrl.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCtrl.Location = new System.Drawing.Point(179, 27);
+            this.txtCtrl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCtrl.Name = "txtCtrl";
             this.txtCtrl.ReadOnly = true;
-            this.txtCtrl.Size = new System.Drawing.Size(210, 32);
+            this.txtCtrl.Size = new System.Drawing.Size(209, 32);
             this.txtCtrl.TabIndex = 2;
-            this.txtCtrl.Text = "0001";
             // 
-            // iconButton2
+            // icnCancel
             // 
-            this.iconButton2.ForeColor = System.Drawing.Color.Crimson;
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Cancel;
-            this.iconButton2.IconColor = System.Drawing.Color.Crimson;
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.IconSize = 35;
-            this.iconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton2.Location = new System.Drawing.Point(1558, 875);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(121, 43);
-            this.iconButton2.TabIndex = 85;
-            this.iconButton2.Text = "Cancel";
-            this.iconButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton2.UseVisualStyleBackColor = true;
+            this.icnCancel.ForeColor = System.Drawing.Color.Crimson;
+            this.icnCancel.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            this.icnCancel.IconColor = System.Drawing.Color.Crimson;
+            this.icnCancel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnCancel.IconSize = 35;
+            this.icnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnCancel.Location = new System.Drawing.Point(1557, 875);
+            this.icnCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.icnCancel.Name = "icnCancel";
+            this.icnCancel.Size = new System.Drawing.Size(121, 43);
+            this.icnCancel.TabIndex = 85;
+            this.icnCancel.Text = "Cancel";
+            this.icnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnCancel.UseVisualStyleBackColor = true;
+            this.icnCancel.Click += new System.EventHandler(this.icnCancel_Click);
             // 
-            // iconButton1
+            // icnUpdate
             // 
-            this.iconButton1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
-            this.iconButton1.IconColor = System.Drawing.Color.ForestGreen;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 35;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(1558, 826);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(121, 43);
-            this.iconButton1.TabIndex = 84;
-            this.iconButton1.Text = "Save File";
-            this.iconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
-            // txtdate
-            // 
-            this.txtdate.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtdate.Location = new System.Drawing.Point(527, 207);
-            this.txtdate.Name = "txtdate";
-            this.txtdate.Size = new System.Drawing.Size(182, 28);
-            this.txtdate.TabIndex = 33;
+            this.icnUpdate.ForeColor = System.Drawing.Color.ForestGreen;
+            this.icnUpdate.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.icnUpdate.IconColor = System.Drawing.Color.ForestGreen;
+            this.icnUpdate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnUpdate.IconSize = 35;
+            this.icnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.icnUpdate.Location = new System.Drawing.Point(1557, 826);
+            this.icnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.icnUpdate.Name = "icnUpdate";
+            this.icnUpdate.Size = new System.Drawing.Size(121, 43);
+            this.icnUpdate.TabIndex = 84;
+            this.icnUpdate.Text = "Save File";
+            this.icnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.icnUpdate.UseVisualStyleBackColor = true;
+            this.icnUpdate.Click += new System.EventHandler(this.icnUpdate_Click);
             // 
             // editPR
             // 
@@ -1192,13 +1283,15 @@
             this.ClientSize = new System.Drawing.Size(1688, 928);
             this.Controls.Add(this.alphaGradientPanel1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.iconButton2);
+            this.Controls.Add(this.icnCancel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.iconButton1);
+            this.Controls.Add(this.icnUpdate);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "editPR";
             this.Text = "Edit Purchase Request";
+            this.Load += new System.EventHandler(this.editPR_Load);
             this.alphaGradientPanel1.ResumeLayout(false);
             this.alphaGradientPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -1206,7 +1299,7 @@
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qrPic)).EndInit();
             this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qrPOPic)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -1242,40 +1335,40 @@
         private FontAwesome.Sharp.IconButton btnPOattach;
         private FontAwesome.Sharp.IconButton btnPRattach;
         private System.Windows.Forms.TextBox txtWasteLoc;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblWaste;
         private System.Windows.Forms.TextBox txtSummaryLoc;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblSummary;
         private System.Windows.Forms.TextBox txtMRLoc;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblMR;
         private System.Windows.Forms.TextBox txtPARLoc;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblPAR;
         private System.Windows.Forms.TextBox txtInspectionLoc;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblInspection;
         private System.Windows.Forms.TextBox txtVoucherLoc;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblVoucher;
         private System.Windows.Forms.TextBox txtObRLoc;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label lblObr;
         private System.Windows.Forms.TextBox txtAwardLoc;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblAward;
         private System.Windows.Forms.TextBox txtPOLoc;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblPO;
         private System.Windows.Forms.TextBox txtPRLoc;
-        private System.Windows.Forms.Label label11;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Label lblPR;
+        private FontAwesome.Sharp.IconButton icnCancel;
         private System.Windows.Forms.GroupBox groupBox3;
         private FontAwesome.Sharp.IconButton qrPrint;
         private FontAwesome.Sharp.IconButton btnGenerate;
         private System.Windows.Forms.PictureBox qrPic;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.GroupBox groupBox4;
-        private FontAwesome.Sharp.IconButton iconButton3;
-        private FontAwesome.Sharp.IconButton iconButton4;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private FontAwesome.Sharp.IconButton icnPOPrint;
+        private FontAwesome.Sharp.IconButton icnPOGenerate;
+        private System.Windows.Forms.PictureBox qrPOPic;
         private System.Windows.Forms.ColorWithAlpha colorWithAlpha2;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private FontAwesome.Sharp.IconButton icnUpdate;
+        private System.Windows.Forms.TextBox txtPOyr;
+        private System.Windows.Forms.TextBox txtPOctrl;
+        private System.Windows.Forms.TextBox txtcnPO;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.Label label10;
