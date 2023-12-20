@@ -30,6 +30,11 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.icnPrint = new FontAwesome.Sharp.IconButton();
+            this.icnSearch = new FontAwesome.Sharp.IconButton();
+            this.comboDept = new System.Windows.Forms.ComboBox();
+            this.cmbYear = new System.Windows.Forms.ComboBox();
+            this.cmbUser = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.listView2 = new System.Windows.Forms.ListView();
@@ -51,6 +56,18 @@
             this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.budgetAllocation = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lblCO = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblOM = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblFOL = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.lblRMTE = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblOS = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTB = new System.Windows.Forms.Label();
             this.color2 = new System.Windows.Forms.ColorWithAlpha();
             this.color1 = new System.Windows.Forms.ColorWithAlpha();
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -80,22 +97,6 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblyear = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.lblCO = new System.Windows.Forms.Label();
-            this.lblOM = new System.Windows.Forms.Label();
-            this.lblRMTE = new System.Windows.Forms.Label();
-            this.lblFOL = new System.Windows.Forms.Label();
-            this.lblOS = new System.Windows.Forms.Label();
-            this.lblTB = new System.Windows.Forms.Label();
-            this.cmbUser = new System.Windows.Forms.ComboBox();
-            this.cmbYear = new System.Windows.Forms.ComboBox();
-            this.comboDept = new System.Windows.Forms.ComboBox();
-            this.icnSearch = new FontAwesome.Sharp.IconButton();
             this.panel3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -104,15 +105,15 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.budgetAllocation.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.alphaGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox6.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -126,6 +127,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.icnPrint);
             this.groupBox4.Controls.Add(this.icnSearch);
             this.groupBox4.Controls.Add(this.comboDept);
             this.groupBox4.Controls.Add(this.cmbYear);
@@ -137,6 +139,68 @@
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search";
+            // 
+            // icnPrint
+            // 
+            this.icnPrint.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnPrint.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.icnPrint.IconColor = System.Drawing.Color.SeaGreen;
+            this.icnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnPrint.IconSize = 50;
+            this.icnPrint.Location = new System.Drawing.Point(940, 25);
+            this.icnPrint.Name = "icnPrint";
+            this.icnPrint.Size = new System.Drawing.Size(96, 85);
+            this.icnPrint.TabIndex = 22;
+            this.icnPrint.Text = "Print";
+            this.icnPrint.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.icnPrint.UseVisualStyleBackColor = true;
+            this.icnPrint.Click += new System.EventHandler(this.icnPrint_Click);
+            // 
+            // icnSearch
+            // 
+            this.icnSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.icnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.icnSearch.IconColor = System.Drawing.Color.SeaGreen;
+            this.icnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.icnSearch.IconSize = 50;
+            this.icnSearch.Location = new System.Drawing.Point(838, 25);
+            this.icnSearch.Name = "icnSearch";
+            this.icnSearch.Size = new System.Drawing.Size(96, 85);
+            this.icnSearch.TabIndex = 21;
+            this.icnSearch.Text = "Search";
+            this.icnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.icnSearch.UseVisualStyleBackColor = true;
+            this.icnSearch.Click += new System.EventHandler(this.icnSearch_Click);
+            // 
+            // comboDept
+            // 
+            this.comboDept.FormattingEnabled = true;
+            this.comboDept.Items.AddRange(new object[] {
+            "SANGGUNIANG PANLALAWIGAN",
+            "VICE GOVERNOR\'S OFFICE"});
+            this.comboDept.Location = new System.Drawing.Point(34, 57);
+            this.comboDept.Name = "comboDept";
+            this.comboDept.Size = new System.Drawing.Size(234, 30);
+            this.comboDept.TabIndex = 20;
+            this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
+            // 
+            // cmbYear
+            // 
+            this.cmbYear.FormattingEnabled = true;
+            this.cmbYear.Location = new System.Drawing.Point(570, 57);
+            this.cmbYear.Name = "cmbYear";
+            this.cmbYear.Size = new System.Drawing.Size(234, 30);
+            this.cmbYear.TabIndex = 19;
+            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
+            // 
+            // cmbUser
+            // 
+            this.cmbUser.FormattingEnabled = true;
+            this.cmbUser.Location = new System.Drawing.Point(302, 57);
+            this.cmbUser.Name = "cmbUser";
+            this.cmbUser.Size = new System.Drawing.Size(234, 30);
+            this.cmbUser.TabIndex = 18;
+            this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
             // 
             // tabControl1
             // 
@@ -274,6 +338,132 @@
             this.budgetAllocation.TabIndex = 32;
             this.budgetAllocation.TabStop = false;
             this.budgetAllocation.Text = "Budget Allocation";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.lblCO);
+            this.groupBox8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(1428, 35);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(227, 100);
+            this.groupBox8.TabIndex = 5;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "CAPITAL OUTLAY";
+            // 
+            // lblCO
+            // 
+            this.lblCO.AutoSize = true;
+            this.lblCO.Location = new System.Drawing.Point(73, 44);
+            this.lblCO.Name = "lblCO";
+            this.lblCO.Size = new System.Drawing.Size(80, 25);
+            this.lblCO.TabIndex = 0;
+            this.lblCO.Text = "label3";
+            this.lblCO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lblOM);
+            this.groupBox5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(1181, 35);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(227, 100);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "OTHER MOOE";
+            // 
+            // lblOM
+            // 
+            this.lblOM.AutoSize = true;
+            this.lblOM.Location = new System.Drawing.Point(69, 44);
+            this.lblOM.Name = "lblOM";
+            this.lblOM.Size = new System.Drawing.Size(80, 25);
+            this.lblOM.TabIndex = 1;
+            this.lblOM.Text = "label4";
+            this.lblOM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblFOL);
+            this.groupBox3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(521, 35);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(317, 100);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "FUEL, OIL, LUBRICANTS";
+            // 
+            // lblFOL
+            // 
+            this.lblFOL.AutoSize = true;
+            this.lblFOL.Location = new System.Drawing.Point(112, 44);
+            this.lblFOL.Name = "lblFOL";
+            this.lblFOL.Size = new System.Drawing.Size(80, 25);
+            this.lblFOL.TabIndex = 3;
+            this.lblFOL.Text = "label6";
+            this.lblFOL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.lblRMTE);
+            this.groupBox7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(853, 35);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(309, 100);
+            this.groupBox7.TabIndex = 3;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "R/M-TRANS EQUIPMENT";
+            // 
+            // lblRMTE
+            // 
+            this.lblRMTE.AutoSize = true;
+            this.lblRMTE.Location = new System.Drawing.Point(101, 44);
+            this.lblRMTE.Name = "lblRMTE";
+            this.lblRMTE.Size = new System.Drawing.Size(80, 25);
+            this.lblRMTE.TabIndex = 2;
+            this.lblRMTE.Text = "label5";
+            this.lblRMTE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblOS);
+            this.groupBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(279, 35);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(227, 100);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "OFFICE SUPPLIES";
+            // 
+            // lblOS
+            // 
+            this.lblOS.AutoSize = true;
+            this.lblOS.Location = new System.Drawing.Point(69, 44);
+            this.lblOS.Name = "lblOS";
+            this.lblOS.Size = new System.Drawing.Size(80, 25);
+            this.lblOS.TabIndex = 4;
+            this.lblOS.Text = "label7";
+            this.lblOS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblTB);
+            this.groupBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(34, 35);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(227, 100);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "TOTAL BUDGET";
+            // 
+            // lblTB
+            // 
+            this.lblTB.AutoSize = true;
+            this.lblTB.Location = new System.Drawing.Point(75, 44);
+            this.lblTB.Name = "lblTB";
+            this.lblTB.Size = new System.Drawing.Size(80, 25);
+            this.lblTB.TabIndex = 5;
+            this.lblTB.Text = "label8";
+            this.lblTB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // color2
             // 
@@ -478,178 +668,6 @@
             this.label2.TabIndex = 18;
             this.label2.Text = "APPROPRIATION AND OBLIGATION";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblTB);
-            this.groupBox1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(34, 35);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 100);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "TOTAL BUDGET";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblOS);
-            this.groupBox2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(279, 35);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(227, 100);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "OFFICE SUPPLIES";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lblFOL);
-            this.groupBox3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(521, 35);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(317, 100);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "FUEL, OIL, LUBRICANTS";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.lblOM);
-            this.groupBox5.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(1181, 35);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(227, 100);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "OTHER MOOE";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.lblRMTE);
-            this.groupBox7.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.Location = new System.Drawing.Point(853, 35);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(309, 100);
-            this.groupBox7.TabIndex = 3;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "R/M-TRANS EQUIPMENT";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.lblCO);
-            this.groupBox8.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(1428, 35);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(227, 100);
-            this.groupBox8.TabIndex = 5;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "CAPITAL OUTLAY";
-            // 
-            // lblCO
-            // 
-            this.lblCO.AutoSize = true;
-            this.lblCO.Location = new System.Drawing.Point(73, 44);
-            this.lblCO.Name = "lblCO";
-            this.lblCO.Size = new System.Drawing.Size(80, 25);
-            this.lblCO.TabIndex = 0;
-            this.lblCO.Text = "label3";
-            this.lblCO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblOM
-            // 
-            this.lblOM.AutoSize = true;
-            this.lblOM.Location = new System.Drawing.Point(69, 44);
-            this.lblOM.Name = "lblOM";
-            this.lblOM.Size = new System.Drawing.Size(80, 25);
-            this.lblOM.TabIndex = 1;
-            this.lblOM.Text = "label4";
-            this.lblOM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblRMTE
-            // 
-            this.lblRMTE.AutoSize = true;
-            this.lblRMTE.Location = new System.Drawing.Point(101, 44);
-            this.lblRMTE.Name = "lblRMTE";
-            this.lblRMTE.Size = new System.Drawing.Size(80, 25);
-            this.lblRMTE.TabIndex = 2;
-            this.lblRMTE.Text = "label5";
-            this.lblRMTE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblFOL
-            // 
-            this.lblFOL.AutoSize = true;
-            this.lblFOL.Location = new System.Drawing.Point(112, 44);
-            this.lblFOL.Name = "lblFOL";
-            this.lblFOL.Size = new System.Drawing.Size(80, 25);
-            this.lblFOL.TabIndex = 3;
-            this.lblFOL.Text = "label6";
-            this.lblFOL.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblOS
-            // 
-            this.lblOS.AutoSize = true;
-            this.lblOS.Location = new System.Drawing.Point(69, 44);
-            this.lblOS.Name = "lblOS";
-            this.lblOS.Size = new System.Drawing.Size(80, 25);
-            this.lblOS.TabIndex = 4;
-            this.lblOS.Text = "label7";
-            this.lblOS.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTB
-            // 
-            this.lblTB.AutoSize = true;
-            this.lblTB.Location = new System.Drawing.Point(75, 44);
-            this.lblTB.Name = "lblTB";
-            this.lblTB.Size = new System.Drawing.Size(80, 25);
-            this.lblTB.TabIndex = 5;
-            this.lblTB.Text = "label8";
-            this.lblTB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cmbUser
-            // 
-            this.cmbUser.FormattingEnabled = true;
-            this.cmbUser.Location = new System.Drawing.Point(302, 57);
-            this.cmbUser.Name = "cmbUser";
-            this.cmbUser.Size = new System.Drawing.Size(234, 30);
-            this.cmbUser.TabIndex = 18;
-            this.cmbUser.SelectedIndexChanged += new System.EventHandler(this.cmbUser_SelectedIndexChanged);
-            // 
-            // cmbYear
-            // 
-            this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(570, 57);
-            this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(234, 30);
-            this.cmbYear.TabIndex = 19;
-            this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
-            // 
-            // comboDept
-            // 
-            this.comboDept.FormattingEnabled = true;
-            this.comboDept.Items.AddRange(new object[] {
-            "SANGGUNIANG PANLALAWIGAN",
-            "VICE GOVERNOR\'S OFFICE"});
-            this.comboDept.Location = new System.Drawing.Point(34, 57);
-            this.comboDept.Name = "comboDept";
-            this.comboDept.Size = new System.Drawing.Size(234, 30);
-            this.comboDept.TabIndex = 20;
-            this.comboDept.SelectedIndexChanged += new System.EventHandler(this.comboDept_SelectedIndexChanged);
-            // 
-            // icnSearch
-            // 
-            this.icnSearch.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.icnSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.icnSearch.IconColor = System.Drawing.Color.SeaGreen;
-            this.icnSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.icnSearch.IconSize = 50;
-            this.icnSearch.Location = new System.Drawing.Point(838, 25);
-            this.icnSearch.Name = "icnSearch";
-            this.icnSearch.Size = new System.Drawing.Size(96, 85);
-            this.icnSearch.TabIndex = 21;
-            this.icnSearch.Text = "Search";
-            this.icnSearch.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.icnSearch.UseVisualStyleBackColor = true;
-            this.icnSearch.Click += new System.EventHandler(this.icnSearch_Click);
-            // 
             // budgetTracking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -672,23 +690,23 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.budgetAllocation.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.alphaGradientPanel1.ResumeLayout(false);
             this.alphaGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,10 +777,11 @@
         private System.Windows.Forms.Label lblRMTE;
         private System.Windows.Forms.Label lblOS;
         private System.Windows.Forms.Label lblTB;
-        private System.Windows.Forms.ComboBox cmbYear;
-        private System.Windows.Forms.ComboBox cmbUser;
         private System.Windows.Forms.ComboBox comboDept;
         private FontAwesome.Sharp.IconButton icnSearch;
+        private FontAwesome.Sharp.IconButton icnPrint;
+        public System.Windows.Forms.ComboBox cmbYear;
+        public System.Windows.Forms.ComboBox cmbUser;
     }
 }
 

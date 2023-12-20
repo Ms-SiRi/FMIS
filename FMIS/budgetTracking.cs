@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Data.SqlClient;
-
+using FMIS.Report;
+using FMIS.FMISDataSetTableAdapters;
 
 namespace FMIS
 {
@@ -355,6 +356,33 @@ namespace FMIS
         {
             SelectALLDATA();
             budgetData();
+        }
+
+        private void icnPrint_Click(object sender, EventArgs e)
+        {
+            BudgetTrackReportsViewer btr = new BudgetTrackReportsViewer();
+            btr.Show();
+
+            String user;
+            int year;
+
+            BudgetTrack bt = new BudgetTrack(); // instance of my rpt file
+            var ds = new FMISDataSet();  // DsBilling is mine XSD
+            var table2 = ds.allData;
+            var adapter2 = new allDataTableAdapter();
+            user = cmbUser.Text;
+            year = Int32.Parse(cmbYear.Text);
+            adapter2.GetData(user, year);
+            bt.SetParameterValue("year", cmbYear.Text);
+            bt.SetParameterValue("User", cmbUser.Text);
+
+
+            ds.AcceptChanges();
+
+            bt.SetDataSource(ds);
+            btr.budgetTrackViewer.ReportSource = bt;
+            btr.budgetTrackViewer.Show();
+            btr.budgetTrackViewer.Refresh();
         }
     }
 }
