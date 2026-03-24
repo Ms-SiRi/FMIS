@@ -138,9 +138,9 @@ namespace FMIS
         public static int laAccountID;
 
 
-        public static String ConnString = "Data Source=DESKTOP-7UEUA2R;Initial Catalog=FMIS2025;User ID=admin;Password=P@SSWORD;";
+        //public static String ConnString = "Data Source=DESKTOP-7UEUA2R;Initial Catalog=FMIS2025;User ID=admin;Password=P@SSWORD;";
 
-        //public static String ConnString = "Data Source=DESKTOP-RHVI7S1;Initial Catalog=FMIS2025;User ID=admin;Password=P@SSWORD;";
+        public static String ConnString = "Data Source=DESKTOP-RHVI7S1;Initial Catalog=FMIS2025;User ID=admin;Password=P@SSWORD;";
 
         public static string ctrl;
         public static string remarks;
