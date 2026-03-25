@@ -330,6 +330,28 @@ namespace FMIS
         private void icnPrint_Click(object sender, EventArgs e)
         {
             //for individual
+            if (chkUser.Checked)
+            {
+                if (chkEnableDate.Checked)
+                {
+                    sourceTypeDeterminer();
+                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                    totalUsedBudgetByDate();
+                    totalAllocatedBudget();
+                    totalRemainingBudget();
+                    showBreakdownReportIndividualByUserWithDate();
+                }
+                else
+                {
+                    sourceTypeDeterminer();
+                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                    totalUsedBudget();
+                    totalAllocatedBudget();
+                    totalRemainingBudget();
+                    showBreakdownReportIndividualByUser();
+                }
+            }
+
             if (chkUser.Checked && chkAccount.Checked)
             {
                 if (chkEnableDate.Checked)
@@ -339,7 +361,7 @@ namespace FMIS
                     totalUsedBudgetByDate();
                     totalAllocatedBudget();
                     totalRemainingBudget();
-                    showBreakdownReportByDate();//
+                    showBreakdownReportByDate();
                 }
                 else
                 {
@@ -351,6 +373,7 @@ namespace FMIS
                     showBreakdownReport();
                 }
             }
+
 
             //for department
             if (chkDept.Checked)
@@ -539,6 +562,64 @@ namespace FMIS
 
             
         }
+
+        void showBreakdownReportIndividualByUser()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                WHERE 
+                    tblBudget.Name = @Name AND 
+                    tblBudget.year = @Year AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )
+                ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Name", cmbUser.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - User.rpt"));
+                    rdd.SetDataSource(dt);
+                    crystalReportViewer1.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
 
         void showBreakdownReport()
         {
@@ -842,6 +923,73 @@ namespace FMIS
                     rdd.Load(Path.Combine(Application.StartupPath, "SPVGOReport - Lump.rpt"));
                     rdd.SetDataSource(dt);
                     crystalReportViewer2.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        void showBreakdownReportIndividualByUserWithDate()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                WHERE 
+                    tblBudget.Name = @Name AND 
+                    tblBudget.year = @Year AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )
+                ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Name", cmbUser.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - UserWithDate.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    // ✅ Pass parameters to Crystal Report
+                    rdd.SetParameterValue("FromDate", dtFrom.Value.Date);
+                    rdd.SetParameterValue("ToDate", dtTo.Value.Date);
+
+                    crystalReportViewer1.ReportSource = rdd;
                 }
                 else
                 {
