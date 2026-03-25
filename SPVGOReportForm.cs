@@ -339,7 +339,7 @@ namespace FMIS
                     totalUsedBudgetByDate();
                     totalAllocatedBudget();
                     totalRemainingBudget();
-                    showBreakdownReportByDate();
+                    showBreakdownReportByDate();//
                 }
                 else
                 {
