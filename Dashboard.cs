@@ -21,6 +21,46 @@ namespace FMIS
         public Dashboard()
         {
             InitializeComponent();
+
+
+            if (Program.userType == "superadmin")
+            {
+
+                label9.Visible = true;
+                label7.Visible = true;
+                dateFROM.Visible = true;
+                dateTO.Visible = true;
+                btnOK.Visible = true;
+                btnSettings.Visible = true;
+                btnSettings.Enabled = true;
+                btnTrackBudget.Enabled = false;
+                btnTrackBudget.Visible = false;
+
+                SelectALLDATA();
+                SelectAccomplishedDATA();
+                SelectPendingDATA();
+                SelectPaymentDATA();
+            }
+            else
+            {
+
+                label9.Visible = false;
+                label7.Visible = false;
+                dateFROM.Visible = false;
+                dateTO.Visible = false;
+                btnOK.Visible = false;
+                btnSettings.Visible = false;
+                btnSettings.Enabled = false;
+                btnTrackBudget.Enabled = false;
+                btnTrackBudget.Visible = false;
+
+                SelectAllDataOfCurrentYear();
+                SelectAccomplishedDATAofCurrentYear();
+                SelectPendingDATAofCurrentYear();
+                SelectPaymentDATAofCurrentYear();
+            }
+
+            btnCancelPR.Enabled = false;
         }
 
         private void panelHome_MouseEnter(object sender, EventArgs e)
@@ -323,65 +363,148 @@ namespace FMIS
 
         }
 
-        void UpdateAllUserAllocations()
+
+        public void UpdateAllUserAllocations()
         {
             using (SqlConnection con = new SqlConnection(Program.ConnString))
             {
                 con.Open();
+                SqlTransaction tran = con.BeginTransaction();
 
-                // 1. Get all user accounts
-                string getAccountsQuery = "SELECT userAccountID, userAllocatedAmount FROM tblUserAccounts";
-                using (SqlCommand getAccountsCmd = new SqlCommand(getAccountsQuery, con))
-                using (SqlDataReader dr = getAccountsCmd.ExecuteReader())
+                try
                 {
-                    List<(int userAccountID, decimal allocated)> accounts = new List<(int, decimal)>();
+                    //-------------------------------------------------
+                    // STEP 1: FIX userAccountID in tblBudget
+                    //-------------------------------------------------
+                    string fixUserAccountID = @"
+                UPDATE b
+                SET b.userAccountID = ua.userAccountID
+                FROM tblBudget b
+                INNER JOIN tblAccounts a 
+                    ON LOWER(LTRIM(RTRIM(a.accountName))) = LOWER(LTRIM(RTRIM(b.source)))
+                    AND a.accountYear = b.year
+                INNER JOIN tblAccountUser u 
+                    ON LOWER(LTRIM(RTRIM(u.userName))) = LOWER(LTRIM(RTRIM(b.Name)))
+                    AND u.userYear = b.year
+                INNER JOIN tblUserAccounts ua 
+                    ON ua.accountID = a.accountID
+                    AND ua.userID = u.userID
+                WHERE b.userAccountID IS NULL
+                   OR b.userAccountID <> ua.userAccountID;
+            ";
 
-                    while (dr.Read())
-                    {
-                        int userAccountID = Convert.ToInt32(dr["userAccountID"]);
+                    SqlCommand cmdFix = new SqlCommand(fixUserAccountID, con, tran);
+                    cmdFix.ExecuteNonQuery();
 
-                        decimal allocated = dr["userAllocatedAmount"] != DBNull.Value
-                                            ? Convert.ToDecimal(dr["userAllocatedAmount"])
-                                            : 0; // default to 0 if null
 
-                        accounts.Add((userAccountID, allocated));
-                    }
+                    //-------------------------------------------------
+                    // STEP 2: UPDATE userUsedAmount
+                    //-------------------------------------------------
+                    string updateUsedAmount = @"
+                UPDATE ua
+                SET ua.userUsedAmount = ISNULL(bt.TotalUsed, 0)
+                FROM tblUserAccounts ua
+                LEFT JOIN (
+                    SELECT 
+                        userAccountID,
+                        SUM(amount) AS TotalUsed
+                    FROM tblBudget
+                    WHERE userAccountID IS NOT NULL
+                    GROUP BY userAccountID
+                ) bt
+                ON ua.userAccountID = bt.userAccountID;
+            ";
 
-                    dr.Close();
+                    SqlCommand cmdUsed = new SqlCommand(updateUsedAmount, con, tran);
+                    cmdUsed.ExecuteNonQuery();
 
-                    // 2. For each account, recalc totals from tblBudget
-                    foreach (var acc in accounts)
-                    {
-                        decimal used = 0;
 
-                        string sumQuery = "SELECT SUM(amount) as usedBudget FROM tblBudget WHERE userAccountID = @userAccountID";
-                        using (SqlCommand sumCmd = new SqlCommand(sumQuery, con))
-                        {
-                            sumCmd.Parameters.AddWithValue("@userAccountID", acc.userAccountID);
+                    //-------------------------------------------------
+                    // STEP 3: UPDATE Remaining Amount
+                    //-------------------------------------------------
+                    string updateRemaining = @"
+                UPDATE tblUserAccounts
+                SET userRemainingAmount = userAllocatedAmount - userUsedAmount;
+            ";
 
-                            object result = sumCmd.ExecuteScalar();
-                            if (result != DBNull.Value)
-                                used = Convert.ToDecimal(result);
-                        }
+                    SqlCommand cmdRemaining = new SqlCommand(updateRemaining, con, tran);
+                    cmdRemaining.ExecuteNonQuery();
 
-                        decimal remaining = acc.allocated - used;
 
-                        // 3. Update tblUserAccounts with new values
-                        string updateQuery = "UPDATE tblUserAccounts SET userUsedAmount = @used, userRemainingAmount = @remaining WHERE userAccountID = @userAccountID";
-                        using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
-                        {
-                            updateCmd.Parameters.AddWithValue("@used", used);
-                            updateCmd.Parameters.AddWithValue("@remaining", remaining);
-                            updateCmd.Parameters.AddWithValue("@userAccountID", acc.userAccountID);
+                    //-------------------------------------------------
+                    // COMMIT
+                    //-------------------------------------------------
+                    tran.Commit();
 
-                            updateCmd.ExecuteNonQuery();
-                        }
-                    }
+                    //MessageBox.Show("UserAccountID fixed and totals refreshed successfully.");
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
-
-            //MessageBox.Show("All user allocations updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        //void UpdateAllUserAllocations()
+        //{
+        //    using (SqlConnection con = new SqlConnection(Program.ConnString))
+        //    {
+        //        con.Open();
+
+        //        // 1. Get all user accounts
+        //        string getAccountsQuery = "SELECT userAccountID, userAllocatedAmount FROM tblUserAccounts";
+        //        using (SqlCommand getAccountsCmd = new SqlCommand(getAccountsQuery, con))
+        //        using (SqlDataReader dr = getAccountsCmd.ExecuteReader())
+        //        {
+        //            List<(int userAccountID, decimal allocated)> accounts = new List<(int, decimal)>();
+
+        //            while (dr.Read())
+        //            {
+        //                int userAccountID = Convert.ToInt32(dr["userAccountID"]);
+
+        //                decimal allocated = dr["userAllocatedAmount"] != DBNull.Value
+        //                                    ? Convert.ToDecimal(dr["userAllocatedAmount"])
+        //                                    : 0; // default to 0 if null
+
+        //                accounts.Add((userAccountID, allocated));
+        //            }
+
+        //            dr.Close();
+
+        //            // 2. For each account, recalc totals from tblBudget
+        //            foreach (var acc in accounts)
+        //            {
+        //                decimal used = 0;
+
+        //                string sumQuery = "SELECT SUM(amount) as usedBudget FROM tblBudget WHERE userAccountID = @userAccountID";
+        //                using (SqlCommand sumCmd = new SqlCommand(sumQuery, con))
+        //                {
+        //                    sumCmd.Parameters.AddWithValue("@userAccountID", acc.userAccountID);
+
+        //                    object result = sumCmd.ExecuteScalar();
+        //                    if (result != DBNull.Value)
+        //                        used = Convert.ToDecimal(result);
+        //                }
+
+        //                decimal remaining = acc.allocated - used;
+
+        //                // 3. Update tblUserAccounts with new values
+        //                string updateQuery = "UPDATE tblUserAccounts SET userUsedAmount = @used, userRemainingAmount = @remaining WHERE userAccountID = @userAccountID";
+        //                using (SqlCommand updateCmd = new SqlCommand(updateQuery, con))
+        //                {
+        //                    updateCmd.Parameters.AddWithValue("@used", used);
+        //                    updateCmd.Parameters.AddWithValue("@remaining", remaining);
+        //                    updateCmd.Parameters.AddWithValue("@userAccountID", acc.userAccountID);
+
+        //                    updateCmd.ExecuteNonQuery();
+        //                }
+        //            }
+        //        }
+        //    }
+
+        //    //MessageBox.Show("All user allocations updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //}
 
 
         int numberofUsers;
@@ -1629,44 +1752,44 @@ namespace FMIS
         {
             
 
-            if (Program.userType == "superadmin")
-            {
+            //if (Program.userType == "superadmin")
+            //{
                 
-                label9.Visible = true;
-                label7.Visible = true;
-                dateFROM.Visible = true;
-                dateTO.Visible = true;
-                btnOK.Visible = true;
-                btnSettings.Visible = true;
-                btnSettings.Enabled = true;
-                btnTrackBudget.Enabled = false;
-                btnTrackBudget.Visible = false;
+            //    label9.Visible = true;
+            //    label7.Visible = true;
+            //    dateFROM.Visible = true;
+            //    dateTO.Visible = true;
+            //    btnOK.Visible = true;
+            //    btnSettings.Visible = true;
+            //    btnSettings.Enabled = true;
+            //    btnTrackBudget.Enabled = false;
+            //    btnTrackBudget.Visible = false;
 
-                SelectALLDATA();
-                SelectAccomplishedDATA();
-                SelectPendingDATA();
-                SelectPaymentDATA();
-            }
-            else
-            {
+            //    SelectALLDATA();
+            //    SelectAccomplishedDATA();
+            //    SelectPendingDATA();
+            //    SelectPaymentDATA();
+            //}
+            //else
+            //{
                 
-                label9.Visible = false;
-                label7.Visible = false;
-                dateFROM.Visible = false;
-                dateTO.Visible = false;
-                btnOK.Visible = false;
-                btnSettings.Visible = false;
-                btnSettings.Enabled = false;
-                btnTrackBudget.Enabled = false;
-                btnTrackBudget.Visible = false;
+            //    label9.Visible = false;
+            //    label7.Visible = false;
+            //    dateFROM.Visible = false;
+            //    dateTO.Visible = false;
+            //    btnOK.Visible = false;
+            //    btnSettings.Visible = false;
+            //    btnSettings.Enabled = false;
+            //    btnTrackBudget.Enabled = false;
+            //    btnTrackBudget.Visible = false;
 
-                SelectAllDataOfCurrentYear();
-                SelectAccomplishedDATAofCurrentYear();
-                SelectPendingDATAofCurrentYear();
-                SelectPaymentDATAofCurrentYear();
-            }
+            //    SelectAllDataOfCurrentYear();
+            //    SelectAccomplishedDATAofCurrentYear();
+            //    SelectPendingDATAofCurrentYear();
+            //    SelectPaymentDATAofCurrentYear();
+            //}
 
-            btnCancelPR.Enabled = false;
+            //btnCancelPR.Enabled = false;
             
         }
 

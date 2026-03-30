@@ -31,6 +31,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkAccount = new System.Windows.Forms.CheckBox();
+            this.chkUser = new System.Windows.Forms.CheckBox();
+            this.chkDept = new System.Windows.Forms.CheckBox();
             this.chkEnableDate = new System.Windows.Forms.CheckBox();
             this.grpDate = new System.Windows.Forms.GroupBox();
             this.dtTo = new System.Windows.Forms.DateTimePicker();
@@ -58,13 +61,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.allocatedBudget = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.crystalReportViewer3 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.crystalReportViewer2 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.alphaGradientPanel2 = new System.Windows.Forms.AlphaGradientPanel();
-            this.chkDept = new System.Windows.Forms.CheckBox();
-            this.chkUser = new System.Windows.Forms.CheckBox();
-            this.chkAccount = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.grpDate.SuspendLayout();
@@ -99,9 +99,9 @@
             this.label1.Location = new System.Drawing.Point(184, 57);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1186, 73);
+            this.label1.Size = new System.Drawing.Size(1006, 73);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Track Secretariat and VGO Budget";
+            this.label1.Text = "SP and VGO Budget Tracking";
             // 
             // groupBox4
             // 
@@ -128,6 +128,39 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Search";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // chkAccount
+            // 
+            this.chkAccount.AutoSize = true;
+            this.chkAccount.Location = new System.Drawing.Point(848, 27);
+            this.chkAccount.Name = "chkAccount";
+            this.chkAccount.Size = new System.Drawing.Size(130, 26);
+            this.chkAccount.TabIndex = 29;
+            this.chkAccount.Text = "by Account";
+            this.chkAccount.UseVisualStyleBackColor = true;
+            this.chkAccount.CheckedChanged += new System.EventHandler(this.chkAccount_CheckedChanged);
+            // 
+            // chkUser
+            // 
+            this.chkUser.AutoSize = true;
+            this.chkUser.Location = new System.Drawing.Point(582, 27);
+            this.chkUser.Name = "chkUser";
+            this.chkUser.Size = new System.Drawing.Size(101, 26);
+            this.chkUser.TabIndex = 28;
+            this.chkUser.Text = "by User";
+            this.chkUser.UseVisualStyleBackColor = true;
+            this.chkUser.CheckedChanged += new System.EventHandler(this.chkUser_CheckedChanged);
+            // 
+            // chkDept
+            // 
+            this.chkDept.AutoSize = true;
+            this.chkDept.Location = new System.Drawing.Point(45, 27);
+            this.chkDept.Name = "chkDept";
+            this.chkDept.Size = new System.Drawing.Size(169, 26);
+            this.chkDept.TabIndex = 27;
+            this.chkDept.Text = "by Department";
+            this.chkDept.UseVisualStyleBackColor = true;
+            this.chkDept.CheckedChanged += new System.EventHandler(this.chkDept_CheckedChanged);
             // 
             // chkEnableDate
             // 
@@ -362,8 +395,8 @@
             // tcReport
             // 
             this.tcReport.Controls.Add(this.tabPage1);
-            this.tcReport.Controls.Add(this.tabPage3);
             this.tcReport.Controls.Add(this.tabPage2);
+            this.tcReport.Controls.Add(this.tabPage3);
             this.tcReport.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcReport.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcReport.Location = new System.Drawing.Point(0, 310);
@@ -371,6 +404,8 @@
             this.tcReport.SelectedIndex = 0;
             this.tcReport.Size = new System.Drawing.Size(1898, 719);
             this.tcReport.TabIndex = 35;
+            this.tcReport.SelectedIndexChanged += new System.EventHandler(this.tcReport_SelectedIndexChanged);
+            this.tcReport.TabIndexChanged += new System.EventHandler(this.tcReport_TabIndexChanged);
             // 
             // tabPage1
             // 
@@ -499,36 +534,12 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.crystalReportViewer2);
+            this.tabPage2.Controls.Add(this.crystalReportViewer3);
             this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1890, 681);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "LUMP REPORT";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // crystalReportViewer2
-            // 
-            this.crystalReportViewer2.ActiveViewIndex = -1;
-            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer2.Location = new System.Drawing.Point(3, 3);
-            this.crystalReportViewer2.Margin = new System.Windows.Forms.Padding(2);
-            this.crystalReportViewer2.Name = "crystalReportViewer2";
-            this.crystalReportViewer2.Size = new System.Drawing.Size(1884, 675);
-            this.crystalReportViewer2.TabIndex = 1;
-            this.crystalReportViewer2.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.crystalReportViewer3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 34);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1890, 681);
-            this.tabPage3.TabIndex = 0;
-            this.tabPage3.Text = "DEPARTMENT REPORT";
+            this.tabPage2.TabIndex = 0;
+            this.tabPage2.Text = "DEPARTMENT REPORT";
             // 
             // crystalReportViewer3
             // 
@@ -542,6 +553,30 @@
             this.crystalReportViewer3.Size = new System.Drawing.Size(1890, 681);
             this.crystalReportViewer3.TabIndex = 2;
             this.crystalReportViewer3.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.crystalReportViewer2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 34);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1890, 681);
+            this.tabPage3.TabIndex = 1;
+            this.tabPage3.Text = "LUMP REPORT";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // crystalReportViewer2
+            // 
+            this.crystalReportViewer2.ActiveViewIndex = -1;
+            this.crystalReportViewer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewer2.Location = new System.Drawing.Point(3, 3);
+            this.crystalReportViewer2.Margin = new System.Windows.Forms.Padding(2);
+            this.crystalReportViewer2.Name = "crystalReportViewer2";
+            this.crystalReportViewer2.Size = new System.Drawing.Size(1884, 675);
+            this.crystalReportViewer2.TabIndex = 1;
+            this.crystalReportViewer2.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // alphaGradientPanel2
             // 
@@ -572,36 +607,6 @@
             this.alphaGradientPanel2.Rounded = true;
             this.alphaGradientPanel2.Size = new System.Drawing.Size(1898, 177);
             this.alphaGradientPanel2.TabIndex = 34;
-            // 
-            // chkDept
-            // 
-            this.chkDept.AutoSize = true;
-            this.chkDept.Location = new System.Drawing.Point(45, 27);
-            this.chkDept.Name = "chkDept";
-            this.chkDept.Size = new System.Drawing.Size(169, 26);
-            this.chkDept.TabIndex = 27;
-            this.chkDept.Text = "by Department";
-            this.chkDept.UseVisualStyleBackColor = true;
-            // 
-            // chkUser
-            // 
-            this.chkUser.AutoSize = true;
-            this.chkUser.Location = new System.Drawing.Point(582, 27);
-            this.chkUser.Name = "chkUser";
-            this.chkUser.Size = new System.Drawing.Size(101, 26);
-            this.chkUser.TabIndex = 28;
-            this.chkUser.Text = "by User";
-            this.chkUser.UseVisualStyleBackColor = true;
-            // 
-            // chkAccount
-            // 
-            this.chkAccount.AutoSize = true;
-            this.chkAccount.Location = new System.Drawing.Point(848, 27);
-            this.chkAccount.Name = "chkAccount";
-            this.chkAccount.Size = new System.Drawing.Size(130, 26);
-            this.chkAccount.TabIndex = 29;
-            this.chkAccount.Text = "by Account";
-            this.chkAccount.UseVisualStyleBackColor = true;
             // 
             // SPVGOReportForm
             // 
@@ -672,9 +677,9 @@
         private System.Windows.Forms.AlphaGradientPanel alphaGradientPanel2;
         private System.Windows.Forms.TabControl tcReport;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
         private System.Windows.Forms.TabPage tabPage3;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer2;
+        private System.Windows.Forms.TabPage tabPage2;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer3;
         private System.Windows.Forms.CheckBox chkAccount;
         private System.Windows.Forms.CheckBox chkUser;

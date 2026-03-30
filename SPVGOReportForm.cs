@@ -276,6 +276,52 @@ namespace FMIS
 
         private void SPVGOReportForm_Load(object sender, EventArgs e)
         {
+            if (tcReport.SelectedIndex == 0)
+            {
+                chkDept.Checked = true;
+                chkDept.Enabled = false;
+                comboDept.Enabled = true;
+                chkUser.Enabled = false;
+                chkUser.Checked = true;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
+            else if (tcReport.SelectedIndex == 1)
+            {
+                chkDept.Checked = true;
+                comboDept.Enabled = true;
+                chkUser.Checked = false;
+                chkUser.Enabled = false;
+                cmbUser.Enabled = false;
+                chkAccount.Checked = false;
+                chkAccount.Enabled = true;
+                cmbSource.Enabled = true;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
+            else if (tcReport.SelectedIndex == 2)
+            {
+                chkDept.Checked = true;
+                comboDept.Enabled = true;
+                cmbYear.SelectedIndex = 0;
+                chkUser.Checked = false;
+                cmbUser.Enabled = false;
+                chkAccount.Checked = false;
+                chkAccount.Enabled = false;
+                cmbSource.Enabled = false;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
+
             //if (Program.userType == "superadmin")
             //{
             //    cmbYear.Enabled = true;
@@ -329,97 +375,244 @@ namespace FMIS
 
         private void icnPrint_Click(object sender, EventArgs e)
         {
-            //for individual
-            if (chkUser.Checked)
+            if (tcReport.SelectedIndex == 0)
             {
-                if (chkEnableDate.Checked)
+                
+                //for individual
+                if (!(chkUser.Checked) && !(chkEnableDate.Checked) && !(chkAccount.Checked))
                 {
                     sourceTypeDeterminer();
                     sourcetype = "tblBudget." + Program.sourcetypedeterminer;
                     totalUsedBudgetByDate();
                     totalAllocatedBudget();
                     totalRemainingBudget();
-                    showBreakdownReportIndividualByUserWithDate();
+                    showBreakdownIndividualAll();
                 }
-                else
-                {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudget();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showBreakdownReportIndividualByUser();
-                }
-            }
 
-            if (chkUser.Checked && chkAccount.Checked)
-            {
+                if (chkUser.Checked)
+                {
+                    if (chkEnableDate.Checked)
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudgetByDate();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReportIndividualByUserWithDate();
+                    }
+                    else
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudget();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReportIndividualByUser();
+                    }
+                }
+
+                if (chkAccount.Checked)
+                {
+                    if (chkEnableDate.Checked)
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudgetByDate();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReportIndividualBySourceWithDate();
+                    }
+                    else
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudget();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReportIndividualBySource();
+                    }
+                }
+
                 if (chkEnableDate.Checked)
                 {
                     sourceTypeDeterminer();
                     sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudgetByDate();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showBreakdownReportByDate();
-                }
-                else
-                {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
                     totalUsedBudget();
                     totalAllocatedBudget();
                     totalRemainingBudget();
-                    showBreakdownReport();
+                    showBreakdownReportIndividualByDate();
+
                 }
+
+                if (chkUser.Checked && chkAccount.Checked)
+                {
+                    if (chkEnableDate.Checked)
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudgetByDate();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReportByDate();
+                    }
+                    else
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudget();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showBreakdownReport();
+                    }
+                }
+
             }
-
-
-            //for department
-            if (chkDept.Checked)
+            else if (tcReport.SelectedIndex == 1)
             {
-                if (chkEnableDate.Checked)
+                
+                //for department
+                if (chkUser.Checked == false && chkAccount.Checked == false)
                 {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudgetByDate();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showBreakdownReportByDepartmentAndDate();
+                    if (chkEnableDate.Checked)
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudgetByDate();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        //showDetailedLumpWithDate();
+                        showDetailedDepartmentDate();
+                    }
+                    else
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudget();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        //showDetailedLump();
+                        showBreakdownLumpReportByDepartment();
+                    }
+                }
+
+                if (chkAccount.Checked)
+                {
+                    if (chkEnableDate.Checked)
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudgetByDate();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showDetailedDepartmentWithAccountAndDate();
+                    }
+                    else
+                    {
+                        sourceTypeDeterminer();
+                        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                        totalUsedBudget();
+                        totalAllocatedBudget();
+                        totalRemainingBudget();
+                        showDetailedDepartmentBySource();
+                    }
+                }
+
+                //if (chkEnableDate.Checked)
+                //{
+                //    sourceTypeDeterminer();
+                //    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                //    totalUsedBudget();
+                //    totalAllocatedBudget();
+                //    totalRemainingBudget();
+                //    showDetailedDepartmentDate();
+                //}
+            }
+            else if (tcReport.SelectedIndex == 2)
+            {
+                //for lump
+                if (!chkUser.Checked)
+                {
+                    if (chkEnableDate.Checked)
+                    {
+                        //printAllocationByDate();
+                        printAllocationByDate_ByDepartmentWithDate();
+                    }
+                    else
+                    {
+                        //printAllocation();
+                        printAllocationByDepartment();
+                    }
                 }
                 else
                 {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudget();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showBreakdownReportByDepartment();
+                    if (chkEnableDate.Checked)
+                    {
+                        printLumpReportByUserWithDate();
+                    }
+                    else
+                    {
+                        printLumpReportByUser(); 
+                    }
                 }
+                
+
+
+                //OLD LUMP
+
+                //if (chkDept.Checked)
+                //{
+                //    if (chkEnableDate.Checked)
+                //    {
+                //        sourceTypeDeterminer();
+                //        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                //        totalUsedBudgetByDate();
+                //        totalAllocatedBudget();
+                //        totalRemainingBudget();
+                //        showBreakdownLumpReportByDepartmentWithDate();
+                //    }
+                //    else
+                //    {
+                //        sourceTypeDeterminer();
+                //        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                //        totalUsedBudget();
+                //        totalAllocatedBudget();
+                //        totalRemainingBudget();
+                //        showBreakdownLumpReportByDepartment();
+                //    }
+                //}
+
+                //if (chkDept.Checked && chkAccount.Checked)
+                //{
+                //    if (chkEnableDate.Checked)
+                //    {
+                //        sourceTypeDeterminer();
+                //        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                //        totalUsedBudgetByDate();
+                //        totalAllocatedBudget();
+                //        totalRemainingBudget();
+                //        showBreakdownReportByDepartmentAndDate();
+                //    }
+                //    else
+                //    {
+                //        sourceTypeDeterminer();
+                //        sourcetype = "tblBudget." + Program.sourcetypedeterminer;
+                //        totalUsedBudget();
+                //        totalAllocatedBudget();
+                //        totalRemainingBudget();
+                //        showBreakdownReportByDepartment();
+                //    }
+                //}
+
+
+
             }
 
-            //for lump
-            if (chkUser.Checked == false)
-            {
-                if (chkEnableDate.Checked)
-                {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudgetByDate();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showDetailedLumpWithDate();
-                }
-                else
-                {
-                    sourceTypeDeterminer();
-                    sourcetype = "tblBudget." + Program.sourcetypedeterminer;
-                    totalUsedBudget();
-                    totalAllocatedBudget();
-                    totalRemainingBudget();
-                    showDetailedLump();
-                }
-            }
+
+
+
+
+
+
 
             //<----------------FOR WHOLE----------------------->
 
@@ -446,7 +639,7 @@ namespace FMIS
             //}
 
             //<-------------END-------------------->
-            
+
             //// Define the custom Temp directory
             //string customTempDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomTemp");
 
@@ -560,8 +753,325 @@ namespace FMIS
             //        con.Close();
             //    }
 
-            
+
         }
+
+
+        void showBreakdownReportIndividualBySourceWithDate()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.source = @Source AND
+                    tblBudget.department = @Department AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // Add district condition dynamically
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+
+                // ✅ Date range
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                // Add district parameter if needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - AccountsWithDate.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    //✅ Optional: pass to Crystal Report parameters
+                    rdd.SetParameterValue("FromDate", dtFrom.Value.Date);
+                    rdd.SetParameterValue("ToDate", dtTo.Value.Date);
+
+                    crystalReportViewer1.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        void showBreakdownReportIndividualByDate()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+            SELECT 
+                tblBudget.*, 
+                FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+            FROM tblBudget
+            INNER JOIN tblAccountUser u 
+                ON tblBudget.Name = u.userName
+            LEFT JOIN qrMotherTable 
+                ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+            LEFT JOIN tblVoucher 
+                ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+            WHERE 
+                u.userDept = @Department AND
+                u.userYear = @Year AND
+                tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                tblBudget.date >= @DateFrom AND
+                tblBudget.date < @DateTo AND
+                (
+                    (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                    (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                )";
+
+                // Add district condition dynamically
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND u.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                // Add district parameter if needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - Date.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    crystalReportViewer1.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+        void showBreakdownReportIndividualBySource()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+        SELECT 
+            tblBudget.*, 
+            FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+        FROM tblBudget
+        LEFT JOIN qrMotherTable 
+            ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+        LEFT JOIN tblVoucher 
+            ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+        LEFT JOIN tblUserAccounts ua
+            ON tblBudget.userAccountID = ua.userAccountID
+        LEFT JOIN tblAccountUser au
+            ON ua.userID = au.userID
+        WHERE 
+            tblBudget.source = @Source AND
+            tblBudget.department = @Department AND
+            tblBudget.year = @Year AND
+            tblBudget.controlNumber NOT LIKE '%Extra%' AND
+            (
+                (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+            )";
+
+                // Add district condition dynamically
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
+                cmd.Parameters.AddWithValue("@Year", Convert.ToInt32(cmbYear.Text));
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - Accounts.rpt"));
+                    rdd.SetDataSource(dt);
+                    crystalReportViewer1.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        void showBreakdownIndividualAll()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+            SELECT 
+                tblBudget.*, 
+                FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate
+            FROM tblBudget
+            LEFT JOIN qrMotherTable 
+                ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+            LEFT JOIN tblVoucher 
+                ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+            LEFT JOIN tblUserAccounts ua
+                ON tblBudget.userAccountID = ua.userAccountID
+            LEFT JOIN tblAccountUser au
+                ON ua.userID = au.userID
+            WHERE 
+                tblBudget.department = @Department AND
+                tblBudget.year = @Year AND
+                tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                (
+                    (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                    (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Individual - All.rpt"));
+                    rdd.SetDataSource(dt);
+                    crystalReportViewer1.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
 
         void showBreakdownReportIndividualByUser()
         {
@@ -683,7 +1193,7 @@ namespace FMIS
 
 
 
-        void showDetailedLump()
+        void showDetailedDepartmentWithAccountAndDate()
         {
             SqlConnection con = new SqlConnection(Program.ConnString);
             con.Open();
@@ -699,15 +1209,271 @@ namespace FMIS
                     ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
                 LEFT JOIN tblVoucher 
                     ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
                 WHERE 
                     tblBudget.department = @Department AND
-                    tblBudget.year = @CurrentYear AND
+                    tblBudget.source = @Source AND
+                    tblBudget.year = @Year AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
+                cmd.Parameters.AddWithValue("@Year", Convert.ToInt32(cmbYear.Text));
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Department - AccountWithDate.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    rdd.SetParameterValue("FromDate", dtFrom.Value.Date.ToString("MMMM dd, yyyy"));
+                    rdd.SetParameterValue("ToDate", dtTo.Value.Date.ToString("MMMM dd, yyyy"));
+
+                    crystalReportViewer3.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+
+        void showDetailedDepartmentDate()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.department = @Department AND
+                    tblBudget.year = @Year AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Year", Convert.ToInt32(cmbYear.Text));
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Department - Date.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    rdd.SetParameterValue("FromDate", dtFrom.Value.Date.ToString("MMMM dd, yyyy"));
+                    rdd.SetParameterValue("ToDate", dtTo.Value.Date.ToString("MMMM dd, yyyy"));
+
+                    crystalReportViewer3.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+        void showDetailedDepartmentBySource()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.department = @Department AND
+                    tblBudget.source = @Source AND
+                    tblBudget.year = @Year AND
                     tblBudget.controlNumber NOT LIKE '%Extra%' AND
                     (
                         (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
                         (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
-                    )
-                ORDER BY tblBudget.date DESC";
+                    )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
+                cmd.Parameters.AddWithValue("@Year", Convert.ToInt32(cmbYear.Text));
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Department - Account.rpt"));
+                    rdd.SetDataSource(dt);
+                    crystalReportViewer3.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        void showDetailedLump()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+        SELECT 
+            tblBudget.*, 
+            FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+        FROM tblBudget
+        LEFT JOIN qrMotherTable 
+            ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+        LEFT JOIN tblVoucher 
+            ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+        LEFT JOIN tblUserAccounts ua
+            ON tblBudget.userAccountID = ua.userAccountID
+        LEFT JOIN tblAccountUser au
+            ON ua.userID = au.userID
+        WHERE 
+            tblBudget.department = @Department AND
+            tblBudget.year = @CurrentYear AND
+            tblBudget.controlNumber NOT LIKE '%Extra%' AND
+            (
+                (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+            )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -717,6 +1483,12 @@ namespace FMIS
                 // Current year filter
                 int currentYear = Convert.ToInt32(cmbYear.Text);
                 cmd.Parameters.AddWithValue("@CurrentYear", currentYear);
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
 
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -745,8 +1517,93 @@ namespace FMIS
         }
 
 
+        void showBreakdownLumpReportByDepartmentWithDate()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
 
-        void showBreakdownReportByDepartment()
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.department = @Department AND 
+                    tblBudget.year = @Year AND
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // ✅ Keep district filter if not ALL
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+
+                // ✅ Date range parameters
+                cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
+                cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Department - AllWithDate.rpt"));
+                    rdd.SetDataSource(dt);
+
+                    // ✅ Optional: pass to Crystal Report
+                    rdd.SetParameterValue("FromDate", dtFrom.Value.Date.ToString("MMMM dd, yyyy"));
+                    rdd.SetParameterValue("ToDate", dtTo.Value.Date.ToString("MMMM dd, yyyy"));
+
+                    crystalReportViewer2.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+        void showBreakdownLumpReportByDepartment()
         {
             SqlConnection con = new SqlConnection(Program.ConnString);
             con.Open();
@@ -762,16 +1619,102 @@ namespace FMIS
             ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
         LEFT JOIN tblVoucher 
             ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+        LEFT JOIN tblUserAccounts ua
+            ON tblBudget.userAccountID = ua.userAccountID
+        LEFT JOIN tblAccountUser au
+            ON ua.userID = au.userID
         WHERE 
             tblBudget.department = @Department AND 
-            tblBudget.year = @Year AND 
-            tblBudget.source = @Source AND 
+            tblBudget.year = @Year AND
             tblBudget.controlNumber NOT LIKE '%Extra%' AND
             (
                 (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
                 (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
-            )
-        ORDER BY tblBudget.date DESC";
+            )";
+
+                // ✅ Keep district filter if not ALL
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
+
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@Department", comboDept.Text);
+                cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
+
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
+
+                SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adap.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    ReportDocument rdd = new ReportDocument();
+                    rdd.Load(Path.Combine(Application.StartupPath, "Department - All.rpt"));
+                    rdd.SetDataSource(dt);
+                    crystalReportViewer2.ReportSource = rdd;
+                }
+                else
+                {
+                    MessageBox.Show("No Records Found!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+
+
+        void showBreakdownReportByDepartment()
+        {
+            SqlConnection con = new SqlConnection(Program.ConnString);
+            con.Open();
+
+            try
+            {
+                string query = @"
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.department = @Department AND 
+                    tblBudget.year = @Year AND 
+                    tblBudget.source = @Source AND 
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
@@ -779,7 +1722,11 @@ namespace FMIS
                 cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
                 cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
 
-                // ❌ Removed DateFrom and DateTo
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
 
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -881,37 +1828,51 @@ namespace FMIS
             try
             {
                 string query = @"
-        SELECT 
-            tblBudget.*, 
-            FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
-        FROM tblBudget
-        LEFT JOIN qrMotherTable 
-            ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
-        LEFT JOIN tblVoucher 
-            ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
-        WHERE 
-            tblBudget.department = @Department AND 
-            tblBudget.year = @Year AND 
-            tblBudget.source = @Source AND 
-            tblBudget.controlNumber NOT LIKE '%Extra%' AND
-            tblBudget.date >= @DateFrom AND
-            tblBudget.date < @DateTo AND
-            (
-                (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
-                (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
-            )
-        ORDER BY tblBudget.date DESC";
+                SELECT 
+                    tblBudget.*, 
+                    FORMAT(tblBudget.date, 'MM/dd/yyyy') AS FormattedDate 
+                FROM tblBudget
+                LEFT JOIN qrMotherTable 
+                    ON tblBudget.controlNumber = qrMotherTable.ctrlNumber
+                LEFT JOIN tblVoucher 
+                    ON tblBudget.controlNumber = tblVoucher.voucherControlNumber
+                LEFT JOIN tblUserAccounts ua
+                    ON tblBudget.userAccountID = ua.userAccountID
+                LEFT JOIN tblAccountUser au
+                    ON ua.userID = au.userID
+                WHERE 
+                    tblBudget.department = @Department AND 
+                    tblBudget.year = @Year AND 
+                    tblBudget.source = @Source AND 
+                    tblBudget.controlNumber NOT LIKE '%Extra%' AND
+                    tblBudget.date >= @DateFrom AND
+                    tblBudget.date < @DateTo AND
+                    (
+                        (qrMotherTable.prStatus IS NOT NULL AND qrMotherTable.prStatus != '4') OR
+                        (tblVoucher.status IS NOT NULL AND tblVoucher.status != 'Cancelled')
+                    )";
+
+                // Dynamic district condition
+                if (Program.userStation != "ALL")
+                {
+                    query += " AND au.district = @District";
+                }
+
+                query += " ORDER BY tblBudget.date DESC";
 
                 SqlCommand cmd = new SqlCommand(query, con);
 
-                // ✅ Replace Name with Department
                 cmd.Parameters.AddWithValue("@Department", comboDept.Text);
-
                 cmd.Parameters.AddWithValue("@Year", cmbYear.Text);
                 cmd.Parameters.AddWithValue("@Source", cmbSource.Text);
-
                 cmd.Parameters.AddWithValue("@DateFrom", dtFrom.Value.Date);
                 cmd.Parameters.AddWithValue("@DateTo", dtTo.Value.Date.AddDays(1));
+
+                // Add district parameter only when needed
+                if (Program.userStation != "ALL")
+                {
+                    cmd.Parameters.AddWithValue("@District", Program.userStation);
+                }
 
                 SqlDataAdapter adap = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -1663,6 +2624,7 @@ namespace FMIS
         private void icnPrintAllocations_Click(object sender, EventArgs e)
         {
             crystalReportViewer1.Zoom(1);
+            
             if (chkEnableDate.Checked)
             {
                 printAllocationByDate();
@@ -1674,6 +2636,7 @@ namespace FMIS
                 printAllocationByDepartment();
             }
         }
+
         void printAllocationByDate_ByDepartmentWithDate()
         {
             DateTime fromDate = dtFrom.Value.Date;
@@ -1688,56 +2651,82 @@ namespace FMIS
                 try
                 {
                     string query = @"
-                    SELECT 
-                        u.userDept,
-                        a.accountName,
-                        SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+            SELECT 
+                u.userDept,
+                a.accountName,
 
-                        -- Previous transactions (same year only)
-                        ISNULL(SUM(CASE 
-                            WHEN b.date < @fromDate 
-                                 AND YEAR(b.date) = @year
-                            THEN b.amount ELSE 0 END), 0) AS PreviousUsedAmount,
+                -- Allocation (safe)
+                SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
 
-                        -- Transactions within range (same year only)
-                        ISNULL(SUM(CASE 
-                            WHEN b.date >= @fromDate 
-                                 AND b.date <= @toDate
-                                 AND YEAR(b.date) = @year
-                            THEN b.amount ELSE 0 END), 0) AS UsedAmountInRange,
+                -- Previous transactions
+                ISNULL(SUM(b.PreviousUsed), 0) AS PreviousUsedAmount,
 
-                        -- Remaining
-                        (SUM(ua.userAllocatedAmount)
-                            - ISNULL(SUM(CASE 
-                                WHEN b.date < @fromDate 
-                                     AND YEAR(b.date) = @year
-                                THEN b.amount ELSE 0 END), 0)
-                            - ISNULL(SUM(CASE 
-                                WHEN b.date >= @fromDate 
-                                     AND b.date <= @toDate
-                                     AND YEAR(b.date) = @year
-                                THEN b.amount ELSE 0 END), 0)
-                        ) AS RemainingAmountInRange
+                -- Transactions within range
+                ISNULL(SUM(b.UsedInRange), 0) AS UsedAmountInRange,
 
-                    FROM tblUserAccounts ua
-                    INNER JOIN tblAccounts a ON ua.accountID = a.accountID
-                    INNER JOIN tblAccountUser u ON ua.userID = u.userID
-                    LEFT JOIN tblBudget b 
-                        ON ua.userAccountID = b.userAccountID
+                -- Remaining
+                (
+                    SUM(ua.userAllocatedAmount)
+                    - ISNULL(SUM(b.PreviousUsed), 0)
+                    - ISNULL(SUM(b.UsedInRange), 0)
+                ) AS RemainingAmountInRange
 
-                    WHERE u.userDept = @department
-                    AND a.accountYear = @year
-                    AND u.userYear = @year
+            FROM tblUserAccounts ua
+            INNER JOIN tblAccounts a ON ua.accountID = a.accountID
+            INNER JOIN tblAccountUser u ON ua.userID = u.userID
 
-                    GROUP BY u.userDept, a.accountName
-                    ORDER BY a.accountName ASC
-                    ";
+            -- ✅ Pre-aggregated budget
+            LEFT JOIN (
+                SELECT 
+                    userAccountID,
+
+                    -- Previous (before range, same year)
+                    SUM(CASE 
+                        WHEN date < @fromDate AND YEAR(date) = @year 
+                        THEN amount ELSE 0 END) AS PreviousUsed,
+
+                    -- Within range
+                    SUM(CASE 
+                        WHEN date >= @fromDate 
+                         AND date < DATEADD(DAY, 1, @toDate)
+                         AND YEAR(date) = @year 
+                        THEN amount ELSE 0 END) AS UsedInRange
+
+                FROM tblBudget
+                GROUP BY userAccountID
+            ) b ON ua.userAccountID = b.userAccountID
+
+            WHERE 
+                u.userDept = @department
+                AND a.accountYear = @year
+                AND u.userYear = @year
+            ";
+
+                    // Add district filter dynamically
+                    if (Program.userStation != "ALL")
+                    {
+                        query += " AND u.district = @District";
+                    }
+
+                    query += @"
+            GROUP BY 
+                u.userDept, 
+                a.accountName
+
+            ORDER BY a.accountName ASC
+            ";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@department", department);
                     cmd.Parameters.AddWithValue("@fromDate", fromDate);
                     cmd.Parameters.AddWithValue("@toDate", toDate);
                     cmd.Parameters.AddWithValue("@year", year);
+
+                    // Add district parameter if needed
+                    if (Program.userStation != "ALL")
+                    {
+                        cmd.Parameters.AddWithValue("@District", Program.userStation);
+                    }
 
                     SqlDataAdapter adap = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -1755,8 +2744,6 @@ namespace FMIS
 
                         rdd.SetParameterValue("FromDate", fromDateText);
                         rdd.SetParameterValue("ToDate", toDateText);
-                        //rdd.SetParameterValue("Department", department);
-                        //rdd.SetParameterValue("Year", year); // optional
 
                         crystalReportViewer2.ReportSource = rdd;
                     }
@@ -1771,7 +2758,117 @@ namespace FMIS
                 }
             }
         }
-        
+
+        //void printAllocationByDate_ByDepartmentWithDate()
+        //{
+        //    DateTime fromDate = dtFrom.Value.Date;
+        //    DateTime toDate = dtTo.Value.Date;
+        //    string department = comboDept.Text;
+        //    int year = fromDate.Year; // dynamic year based on selected date
+
+        //    using (SqlConnection con = new SqlConnection(Program.ConnString))
+        //    {
+        //        con.Open();
+
+        //        try
+        //        {
+        //            string query = @"
+        //            SELECT 
+        //                u.userDept,
+        //                a.accountName,
+
+        //                -- Allocation (safe)
+        //                SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+
+        //                -- Previous transactions
+        //                ISNULL(SUM(b.PreviousUsed), 0) AS PreviousUsedAmount,
+
+        //                -- Transactions within range
+        //                ISNULL(SUM(b.UsedInRange), 0) AS UsedAmountInRange,
+
+        //                -- Remaining
+        //                (
+        //                    SUM(ua.userAllocatedAmount)
+        //                    - ISNULL(SUM(b.PreviousUsed), 0)
+        //                    - ISNULL(SUM(b.UsedInRange), 0)
+        //                ) AS RemainingAmountInRange
+
+        //            FROM tblUserAccounts ua
+        //            INNER JOIN tblAccounts a ON ua.accountID = a.accountID
+        //            INNER JOIN tblAccountUser u ON ua.userID = u.userID
+
+        //            -- ✅ FIX: Pre-aggregated budget
+        //            LEFT JOIN (
+        //                SELECT 
+        //                    userAccountID,
+
+        //                    -- Previous (before range, same year)
+        //                    SUM(CASE 
+        //                        WHEN date < @fromDate AND YEAR(date) = @year 
+        //                        THEN amount ELSE 0 END) AS PreviousUsed,
+
+        //                    -- Within range
+        //                    SUM(CASE 
+        //                        WHEN date >= @fromDate 
+        //                         AND date < DATEADD(DAY, 1, @toDate)
+        //                         AND YEAR(date) = @year 
+        //                        THEN amount ELSE 0 END) AS UsedInRange
+
+        //                FROM tblBudget
+        //                GROUP BY userAccountID
+        //            ) b ON ua.userAccountID = b.userAccountID
+
+        //            WHERE 
+        //                u.userDept = @department
+        //                AND a.accountYear = @year
+        //                AND u.userYear = @year
+
+        //            GROUP BY 
+        //                u.userDept, 
+        //                a.accountName
+
+        //            ORDER BY a.accountName ASC
+        //            ";
+
+        //            SqlCommand cmd = new SqlCommand(query, con);
+        //            cmd.Parameters.AddWithValue("@department", department);
+        //            cmd.Parameters.AddWithValue("@fromDate", fromDate);
+        //            cmd.Parameters.AddWithValue("@toDate", toDate);
+        //            cmd.Parameters.AddWithValue("@year", year);
+
+        //            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+        //            DataTable dt = new DataTable();
+        //            adap.Fill(dt);
+
+        //            if (dt.Rows.Count > 0)
+        //            {
+        //                ReportDocument rdd = new ReportDocument();
+        //                rdd.Load(Path.Combine(Application.StartupPath, "BudgetAllocation - LumpWithDate.rpt"));
+        //                rdd.SetDataSource(dt);
+
+        //                // Format dates
+        //                string fromDateText = fromDate.ToString("MMMM dd, yyyy");
+        //                string toDateText = toDate.ToString("MMMM dd, yyyy");
+
+        //                rdd.SetParameterValue("FromDate", fromDateText);
+        //                rdd.SetParameterValue("ToDate", toDateText);
+        //                //rdd.SetParameterValue("Department", department);
+        //                //rdd.SetParameterValue("Year", year); // optional
+
+        //                crystalReportViewer2.ReportSource = rdd;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("No Records Found!");
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error: " + ex.Message);
+        //        }
+        //    }
+        //}
+
 
         void printAllocationByDate()
         {
@@ -1865,34 +2962,40 @@ namespace FMIS
                 try
                 {
                     string query = @"
-                    SELECT 
-                        u.userDept,
-                        a.accountName,
-                        SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+            SELECT 
+                a.accountName,
+                SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+                SUM(ua.userUsedAmount) AS userUsedAmount,
+                SUM(ua.userRemainingAmount) AS userRemainingAmount
+            FROM tblAccountUser u
+            INNER JOIN tblUserAccounts ua 
+                ON u.userID = ua.userID
+            INNER JOIN tblAccounts a 
+                ON ua.accountID = a.accountID
+            WHERE 
+                u.userYear = @year
+                AND a.accountYear = @year
+                AND u.userDept = @department";
 
-                        -- Total used
-                        ISNULL(SUM(b.amount), 0) AS userUsedAmount,
+                    // Add district condition dynamically
+                    if (Program.userStation != "ALL")
+                    {
+                        query += " AND u.district = @District";
+                    }
 
-                        -- Remaining
-                        (SUM(ua.userAllocatedAmount) - ISNULL(SUM(b.amount), 0)) AS userRemainingAmount
-
-                    FROM tblUserAccounts ua
-                    INNER JOIN tblAccounts a ON ua.accountID = a.accountID
-                    INNER JOIN tblAccountUser u ON ua.userID = u.userID
-                    LEFT JOIN tblBudget b 
-                        ON ua.userAccountID = b.userAccountID
-
-                    WHERE u.userDept = @department
-                    AND a.accountYear = @year
-                    AND u.userYear = @year
-
-                    GROUP BY u.userDept, a.accountName
-                    ORDER BY a.accountName ASC
-                    ";
+                    query += @"
+            GROUP BY a.accountName
+            ORDER BY a.accountName ASC";
 
                     SqlCommand cmd = new SqlCommand(query, con);
                     cmd.Parameters.AddWithValue("@department", department);
                     cmd.Parameters.AddWithValue("@year", year);
+
+                    // Add district parameter if needed
+                    if (Program.userStation != "ALL")
+                    {
+                        cmd.Parameters.AddWithValue("@District", Program.userStation);
+                    }
 
                     SqlDataAdapter adap = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -1901,11 +3004,12 @@ namespace FMIS
                     if (dt.Rows.Count > 0)
                     {
                         ReportDocument rdd = new ReportDocument();
-                        rdd.Load(Path.Combine(Application.StartupPath, "BudgetAllocation - Lump.rpt"));
+                        rdd.Load(Path.Combine(Application.StartupPath, "Lump - Department.rpt"));
                         rdd.SetDataSource(dt);
 
-                        //rdd.SetParameterValue("Department", department);
-                        //rdd.SetParameterValue("Year", year); // optional
+                        // Optional: pass parameters to report
+                         rdd.SetParameterValue("Department", department);
+                        // rdd.SetParameterValue("Year", year);
 
                         crystalReportViewer2.ReportSource = rdd;
                     }
@@ -1920,6 +3024,279 @@ namespace FMIS
                 }
             }
         }
+
+
+        //void printAllocationByDepartment()
+        //{
+        //    string department = comboDept.Text;
+        //    int year = Convert.ToInt32(cmbYear.Text); // or get dynamically if needed
+
+        //    using (SqlConnection con = new SqlConnection(Program.ConnString))
+        //    {
+        //        con.Open();
+
+        //        try
+        //        {
+        //            string query = @"
+        //            SELECT 
+        //                a.accountName,
+        //                SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+        //                SUM(ua.userUsedAmount) AS userUsedAmount,
+        //                SUM(ua.userRemainingAmount) AS userRemainingAmount
+        //            FROM tblAccountUser u
+        //            INNER JOIN tblUserAccounts ua 
+        //                ON u.userID = ua.userID
+        //            INNER JOIN tblAccounts a 
+        //                ON ua.accountID = a.accountID
+        //            WHERE 
+        //                u.userYear = @year
+        //                AND a.accountYear = @year
+        //                AND u.userDept = @department
+        //            GROUP BY a.accountName
+        //            ORDER BY a.accountName ASC";
+
+        //            SqlCommand cmd = new SqlCommand(query, con);
+        //            cmd.Parameters.AddWithValue("@department", department);
+        //            cmd.Parameters.AddWithValue("@year", year);
+
+        //            SqlDataAdapter adap = new SqlDataAdapter(cmd);
+        //            DataTable dt = new DataTable();
+        //            adap.Fill(dt);
+
+        //            if (dt.Rows.Count > 0)
+        //            {
+        //                ReportDocument rdd = new ReportDocument();
+        //                rdd.Load(Path.Combine(Application.StartupPath, "BudgetAllocation - Lump.rpt"));
+        //                rdd.SetDataSource(dt);
+
+        //                //rdd.SetParameterValue("Department", department);
+        //                //rdd.SetParameterValue("Year", year); // optional
+
+        //                crystalReportViewer2.ReportSource = rdd;
+        //            }
+        //            else
+        //            {
+        //                MessageBox.Show("No Records Found!");
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error: " + ex.Message);
+        //        }
+        //    }
+        //}
+
+
+
+        void printLumpReportByUserWithDate()
+        {
+            DateTime fromDate = dtFrom.Value.Date;
+            DateTime toDate = dtTo.Value.Date;
+            string department = comboDept.Text;
+            string userName = cmbUser.Text; // User name filter
+            int year = fromDate.Year; // dynamic year based on selected date
+
+            using (SqlConnection con = new SqlConnection(Program.ConnString))
+            {
+                con.Open();
+
+                try
+                {
+                    string query = @"
+                    SELECT 
+                        u.userDept,
+                        u.userName,
+                        a.accountName,
+
+                        -- Allocation (safe)
+                        SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+
+                        -- Previous transactions
+                        ISNULL(SUM(b.PreviousUsed), 0) AS PreviousUsedAmount,
+
+                        -- Transactions within range
+                        ISNULL(SUM(b.UsedInRange), 0) AS UsedAmountInRange,
+
+                        -- Remaining
+                        (
+                            SUM(ua.userAllocatedAmount)
+                            - ISNULL(SUM(b.PreviousUsed), 0)
+                            - ISNULL(SUM(b.UsedInRange), 0)
+                        ) AS RemainingAmountInRange
+
+                    FROM tblUserAccounts ua
+                    INNER JOIN tblAccounts a ON ua.accountID = a.accountID
+                    INNER JOIN tblAccountUser u ON ua.userID = u.userID
+
+                    -- ✅ Pre-aggregated budget
+                    LEFT JOIN (
+                        SELECT 
+                            userAccountID,
+
+                            -- Previous (before range, same year)
+                            SUM(CASE 
+                                WHEN date < @fromDate AND YEAR(date) = @year 
+                                THEN amount ELSE 0 END) AS PreviousUsed,
+
+                            -- Within range
+                            SUM(CASE 
+                                WHEN date >= @fromDate 
+                                 AND date < DATEADD(DAY, 1, @toDate)
+                                 AND YEAR(date) = @year 
+                                THEN amount ELSE 0 END) AS UsedInRange
+
+                        FROM tblBudget
+                        GROUP BY userAccountID
+                    ) b ON ua.userAccountID = b.userAccountID
+
+                    WHERE 
+                        u.userDept = @department
+                        AND u.userName = @userName
+                        AND a.accountYear = @year
+                        AND u.userYear = @year
+                    ";
+
+                    // Add district filter dynamically
+                    if (Program.userStation != "ALL")
+                    {
+                        query += " AND u.district = @District";
+                    }
+
+                    query += @"
+                    GROUP BY 
+                        u.userDept, 
+                        u.userName,
+                        a.accountName
+
+                    ORDER BY a.accountName ASC
+                    ";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@department", department);
+                    cmd.Parameters.AddWithValue("@userName", userName);
+                    cmd.Parameters.AddWithValue("@fromDate", fromDate);
+                    cmd.Parameters.AddWithValue("@toDate", toDate);
+                    cmd.Parameters.AddWithValue("@year", year);
+
+                    // Add district parameter if needed
+                    if (Program.userStation != "ALL")
+                    {
+                        cmd.Parameters.AddWithValue("@District", Program.userStation);
+                    }
+
+                    SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adap.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        ReportDocument rdd = new ReportDocument();
+                        rdd.Load(Path.Combine(Application.StartupPath, "Lump - UserWithDate.rpt"));
+                        rdd.SetDataSource(dt);
+
+                        // Format dates
+                        string fromDateText = fromDate.ToString("MMMM dd, yyyy");
+                        string toDateText = toDate.ToString("MMMM dd, yyyy");
+
+                        rdd.SetParameterValue("FromDate", fromDateText);
+                        rdd.SetParameterValue("ToDate", toDateText);
+                        rdd.SetParameterValue("Department", department);
+                        rdd.SetParameterValue("UserName", userName);
+
+                        crystalReportViewer2.ReportSource = rdd;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Records Found!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
+
+
+        void printLumpReportByUser()
+        {
+            string department = comboDept.Text;
+            string userName = cmbUser.Text; // Selected user
+            int year = Convert.ToInt32(cmbYear.Text);
+
+            using (SqlConnection con = new SqlConnection(Program.ConnString))
+            {
+                con.Open();
+
+                try
+                {
+                    string query = @"
+                    SELECT 
+                        a.accountName,
+                        SUM(ua.userAllocatedAmount) AS userAllocatedAmount,
+                        SUM(ua.userUsedAmount) AS userUsedAmount,
+                        SUM(ua.userRemainingAmount) AS userRemainingAmount
+                    FROM tblAccountUser u
+                    INNER JOIN tblUserAccounts ua 
+                        ON u.userID = ua.userID
+                    INNER JOIN tblAccounts a 
+                        ON ua.accountID = a.accountID
+                    WHERE 
+                        u.userYear = @year
+                        AND a.accountYear = @year
+                        AND u.userDept = @department
+                        AND u.userName = @UserName"; // ✅ Filter by user name
+
+                                    // Optional district condition
+                                    if (Program.userStation != "ALL")
+                                    {
+                                        query += " AND u.district = @District";
+                                    }
+
+                                    query += @"
+                    GROUP BY a.accountName
+                    ORDER BY a.accountName ASC";
+
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@department", department);
+                    cmd.Parameters.AddWithValue("@year", year);
+                    cmd.Parameters.AddWithValue("@UserName", userName);
+
+                    if (Program.userStation != "ALL")
+                    {
+                        cmd.Parameters.AddWithValue("@District", Program.userStation);
+                    }
+
+                    SqlDataAdapter adap = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adap.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        ReportDocument rdd = new ReportDocument();
+                        rdd.Load(Path.Combine(Application.StartupPath, "Lump - User.rpt"));
+                        rdd.SetDataSource(dt);
+
+                        // Optional: pass parameters to Crystal Report
+                        rdd.SetParameterValue("Department", department);
+                        rdd.SetParameterValue("UserName", userName);
+                        //rdd.SetParameterValue("Year", year);
+
+                        crystalReportViewer2.ReportSource = rdd;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Records Found!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
 
 
         void printAllocation()
@@ -1976,6 +3353,97 @@ namespace FMIS
         private void groupBox4_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void chkDept_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDept.Checked)
+            {
+                comboDept.Enabled = true;
+            }
+            else
+            {
+                comboDept.Enabled = false;
+            }
+        }
+
+        private void chkUser_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkUser.Checked)
+            {
+                cmbUser.Enabled = true;
+            }
+            else
+            {
+                cmbUser.Enabled = false;
+            }
+        }
+
+        private void chkAccount_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAccount.Checked)
+            {
+                cmbSource.Enabled = true;
+            }
+            else
+            {
+                cmbSource.Enabled = false;
+            }
+        }
+
+        private void tcReport_TabIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void tcReport_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tcReport.SelectedIndex == 0)
+            {
+                chkDept.Checked = true;
+                chkDept.Enabled = false;
+                comboDept.Enabled = true;    
+                chkUser.Enabled = false;
+                chkUser.Checked = true;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
+            else if (tcReport.SelectedIndex == 1)
+            {
+                chkDept.Checked = true;
+                comboDept.Enabled = true;
+                chkUser.Checked = false;
+                chkUser.Enabled = false;
+                cmbUser.Enabled = false;
+                chkAccount.Checked = false;
+                chkAccount.Enabled = true;
+                cmbSource.Enabled = true;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
+            else if (tcReport.SelectedIndex == 2)
+            {
+                chkDept.Checked= true;
+                comboDept.Enabled = true;
+                cmbYear.SelectedIndex = 0;
+                chkUser.Enabled = true;
+                chkUser.Checked = false;
+                cmbUser.Enabled = true;
+                chkAccount.Checked = false;
+                chkAccount.Enabled = false;
+                cmbSource.Enabled = false;
+
+                comboDept.SelectedIndex = 0;
+                cmbYear.SelectedIndex = 0;
+                cmbUser.SelectedIndex = 0;
+                cmbSource.SelectedIndex = 0;
+            }
         }
     }
 }
