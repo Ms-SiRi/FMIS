@@ -45,6 +45,7 @@ namespace FMIS
                 txtName.Text = dr["userName"].ToString();
                 cmbDept.Text = dr["userDept"].ToString();
                 txtYear.Text = dr["userYear"].ToString();
+                cmbDistrict.Text = dr["district"].ToString();
             }
             
         }
@@ -56,7 +57,7 @@ namespace FMIS
 
         private void emptyFields()
         {
-            if (txtName.Text == "" || cmbDept.Text == "")
+            if (txtName.Text == "" || cmbDept.Text == "" || cmbDistrict.Text == "")
             {
                 MessageBox.Show("Please fill out the empty fields!");
             }
@@ -81,7 +82,7 @@ namespace FMIS
         {
             SqlConnection con = new SqlConnection(Program.ConnString);
             SqlCommand cmd;
-            String query = "UPDATE tbLAccountUser SET userName = @Name,userDept = @Dept, userYear = @Year WHERE userID =" +Program.AccountUserID;
+            String query = "UPDATE tbLAccountUser SET userName = @Name,userDept = @Dept, userYear = @Year, district = @district WHERE userID =" +Program.AccountUserID;
 
             con.Open();
 
@@ -90,6 +91,7 @@ namespace FMIS
                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
                 cmd.Parameters.AddWithValue("@Dept", cmbDept.Text);                
                 cmd.Parameters.AddWithValue("@year", txtYear.Text);
+                cmd.Parameters.AddWithValue("@district", cmbDistrict.Text);
                 cmd.ExecuteNonQuery();
             }
 
@@ -102,7 +104,7 @@ namespace FMIS
         {
             SqlConnection con = new SqlConnection(Program.ConnString);
             SqlCommand cmd;
-            String query = "Insert INTO tblAccountUser(userName,userDept, userYear) VALUES (@Name,@Dept,@year)";
+            String query = "Insert INTO tblAccountUser(userName,userDept, userYear, district) VALUES (@Name,@Dept,@year, @district)";
 
             con.Open();
 
@@ -111,6 +113,7 @@ namespace FMIS
                 cmd.Parameters.AddWithValue("@Name", txtName.Text);
                 cmd.Parameters.AddWithValue("@Dept", cmbDept.Text);
                 cmd.Parameters.AddWithValue("@year", txtYear.Text);
+                cmd.Parameters.AddWithValue("@district", cmbDistrict.Text);
                 cmd.ExecuteNonQuery();
             }
 

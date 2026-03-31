@@ -68,7 +68,7 @@ namespace FMIS
                 cmbYear.DataSource = table2;
                 cmbYear.DisplayMember = "userYear";
                 cmbYear.ValueMember = "userYear";
-                cmbYear.SelectedIndex = -1; // no auto-selection
+                cmbYear.SelectedIndex = -1; 
 
                 // ✅ Re-subscribe after binding
                 cmbYear.SelectedIndexChanged += cmbYear_SelectedIndexChanged;
@@ -471,8 +471,9 @@ namespace FMIS
             {
                 
                 //for department
-                if (chkUser.Checked == false && chkAccount.Checked == false)
+                if (chkDept.Checked && chkUser.Checked == false && chkAccount.Checked == false)
                 {
+                    
                     if (chkEnableDate.Checked)
                     {
                         sourceTypeDeterminer();
@@ -492,6 +493,7 @@ namespace FMIS
                         totalRemainingBudget();
                         //showDetailedLump();
                         showBreakdownLumpReportByDepartment();
+                        
                     }
                 }
 
@@ -1659,7 +1661,7 @@ namespace FMIS
                     ReportDocument rdd = new ReportDocument();
                     rdd.Load(Path.Combine(Application.StartupPath, "Department - All.rpt"));
                     rdd.SetDataSource(dt);
-                    crystalReportViewer2.ReportSource = rdd;
+                    crystalReportViewer3.ReportSource = rdd;
                 }
                 else
                 {
@@ -3444,6 +3446,11 @@ namespace FMIS
                 cmbUser.SelectedIndex = 0;
                 cmbSource.SelectedIndex = 0;
             }
+        }
+
+        private void cmbYear_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

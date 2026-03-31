@@ -336,6 +336,7 @@
             this.cmbYear.Size = new System.Drawing.Size(234, 30);
             this.cmbYear.TabIndex = 19;
             this.cmbYear.SelectedIndexChanged += new System.EventHandler(this.cmbYear_SelectedIndexChanged);
+            this.cmbYear.TextChanged += new System.EventHandler(this.cmbYear_TextChanged);
             // 
             // cmbUser
             // 
